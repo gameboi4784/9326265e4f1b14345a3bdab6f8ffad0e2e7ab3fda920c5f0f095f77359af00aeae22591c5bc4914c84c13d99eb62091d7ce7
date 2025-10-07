@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VW8CMPRWYS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-VW8CMPRWYS');
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>.shortpie.'s DELTARUNE web port!</title>
+
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#000000" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="fav.ico" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>welcome to</h2>
+      <h1 class="shortpie">&nbsp;.shortpie.'s</h1>
+      <br>
+      <br>
+      <img style="width: 85%;" src="deltarune_logo.png" alt="DELTARUNE" class="logo" />
+      <h1 style="display: block; margin:0;">web port!</h1>
+      <img id="dog" class="toby" src="toby/10thdog.png" alt="toby">
+      <img class="toby10th" src="toby/10thanniv.png" alt="toby">
+      <audio id="audio-player" preload="auto"></audio>
+      <script>
+        if (history.scrollRestoration) {
+          history.scrollRestoration = 'manual';
+        }
+      </script>
+      <script>
+        const dogElement = document.getElementById('dog');
+        const audioPlayer = document.getElementById('audio-player');
+        dogElement.addEventListener('mouseenter', () => {
+          dogElement.src = 'toby/10thdogmouth.png';
+        });
+        dogElement.addEventListener('mouseleave', () => {
+          dogElement.src = 'toby/10thdog.png';
+        });
+        dogElement.addEventListener('click', () => {
+          audioPlayer.src = 'toby/6.mp3';
+          audioPlayer.play();
+        });
+      </script>
+      <div class="button-group">
+          <div id="chapterButtons" class="chapter-buttons">
+            <button id="BOSSRUSHButton" class="chapter-button-3" onclick="location.href='/bossrush/'">
+              <span class="button-label">BOSS RUSH!</span>
+            </button>
+            <button class="chapter-button-1" onclick="location.href='play/'">
+              <span class="button-label">START</span>
+            </button>
+            <button id="ostPlayerButton" class="chapter-button-2" onclick="location.href='music/'">
+              <span class="button-label">OST PLAYER</span>
+            </button>
+          </div>
+        <div id="chapterButtons" class="othersite-button">
+          <button class="chapter-button-4" onclick="location.href='/utweb/'">
+            <span class="button-label">UNDERTALEWeb</span>
+          </button>
+        </div>
+      </div>
+      <div class="toggle-container">
+        <label for="offlineToggle">Offline Mode?</label>
+        <label class="toggle-switch">
+          <input type="checkbox" id="offlineToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div id="cacheStatus">
+        <img src="spinner.gif" id="cacheSpinnerGif" alt="Downloading...">
+        <span id="cacheText"></span>
+      </div>
+      <div class="notes">
+        <h2 class="notes-title">— UPDATE NOTES —</h2>
+        <h4>version 6.0 LTS</h4>
+        <ul style="font-family: '8BitOperator', sans-serif; font-size: 90%">
+          <li class="update">The base DELTARUNE version has been updated to use the very recent v1.05 beta! (The Mike room bug has also been fixed in Chapter 4 of this version.)</li>
+          <li class="update">Fixed some bugs in the OST player, as well as added songs from the DELTARUNE Piano Collections (Vol. 1) album!</li>
+          <li class="update">The game itself now looks better than before (thanks to the UT 10th Anniv. team for that!) using an updated canvas.</li>
+          <li class="update">The BOSS RUSH mode has now been updated to the newest version of the mod! This may fix some bugs and/or issues.</li>
+          <li class="update">An archive of many older DELTARUNEWeb versions are now available at <a href="https://archive.deltarune.win" style="color: #007bff;">archive.deltarune.win</a>!</li>
+          <li class="update">A brand-new mod loader is now available at <a href="https://deltarune.win" style="color: #007bff;">the main DRWeb homepage</a>!</li>
+        </ul>
+        <p style="color: #000;">
+          <a href="old/" style="color: #007BFF;">Click here</a> to view older releases of DELTARUNEWeb!
+        </p>
+      </div>
+      <h5 id="discord-link" style="font-size: 35px; margin-bottom: 14px; margin-top: 32px;">
+          <br><a href="https://discord.gg/4nry3kY6Js" style="color: #5865F2;">The Discord server</a> is back and better than ever! Join for development updates and other projects!
+      </h5>
+      <iframe id="discord-widget" src="https://discord.com/widget?id=1417899899390791816&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+      <footer class="disclaimer">
+          <p>
+            <strong style="font-size: 20px; color: #667;">DISCLAIMER:</strong>
+            <br> This is a fan-made project for educational and archival purposes. All rights to <em>DELTARUNE</em>, including Chapters 1–4, are owned by Toby Fox, the DELTARUNE Team, 8-4 and any associated partners. <br> I do not claim ownership of any copyrighted material and do not profit from this project. <br> If you are the copyright holder and would like to discuss the topic of the content on this website, please contact me by emailing me at snappyshortpie@gmail.com or .shortpie. on Discord and I will respond as soon as possible. <br>
+            <br> Please support the official release at <a href="https://deltarune.com" target="_blank">deltarune.com</a> whenever you have a chance!
+          </p>
+      </footer>
+      <p>
+        <strong style="font-size: 20px; color: #557;">base homepage made by </strong>
+        <a href="https://github.com/aukak" style="font-size: 20px; color: #007bff; text-decoration: underline;">bog</a>
+      </p>
+      <div id="gameFrame" class="game-frame hidden"></div>
+      <script>
+          // --- SELECTORS FOR BUTTONS AND OTHER ELEMENTS ---
+          const BOSSRUSHButton = document.querySelector('#BOSSRUSHButton');
+          const UTWebButton = document.querySelector('.othersite-button');
+          const ostPlayerButton = document.getElementById('ostPlayerButton');
+          const discordLink = document.getElementById('discord-link');
+          const discordWidget = document.getElementById('discord-widget');
+          const offlineToggle = document.getElementById('offlineToggle');
+          const cacheStatusText = document.getElementById('cacheText');
+          const cacheSpinner = document.getElementById('cacheSpinnerGif');
+          const toggleSwitch = document.querySelector('.toggle-switch');
+          const CACHE_NAME = 'offlinemode';
+
+          // --- CORE FUNCTIONS ---
+
+          async function fetchFileList(url) {
+            try {
+              const response = await fetch(url);
+              if (!response.ok) {
+                console.error(`Failed to fetch file list: ${url}. Status: ${response.status}`);
+                alert(`Could not download the file list from ${url}. This component may not work offline.`);
+                return []; // Return an empty array on HTTP error
+              }
+              const text = await response.text();
+              // Split by newline and filter out any empty lines
+              return text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+            } catch (error) {
+              console.error(`Network error fetching file list from ${url}:`, error);
+              alert(`A network error occurred while trying to download the file list from ${url}.`);
+              return []; // Return an empty array on network error
+            }
+          }
+
+          async function cacheFilesWithProgress(cache, fileList) {
+            let failedFiles = [];
+            const maxRetries = 3;
+            for (let i = 0; i < fileList.length; i++) {
+              const file = fileList[i];
+              let success = false;
+              for (let attempt = 1; attempt <= maxRetries; attempt++) {
+                try {
+                  cacheStatusText.textContent = `Downloading files: ${i + 1}/${fileList.length} (Attempt ${attempt}/3)...`;
+                  await cache.add(file);
+                  success = true;
+                  break;
+                } catch (error) {
+                  console.warn(`Attempt ${attempt} failed for ${file}:`, error);
+                  if (attempt === maxRetries) {
+                    console.error(`All ${maxRetries} attempts failed for ${file}.`);
+                  } else {
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                  }
+                }
+              }
+              if (!success) {
+                failedFiles.push(file);
+              }
+            }
+            return failedFiles;
+          }
+
+          async function clearCacheAndReset() {
+            await caches.delete(CACHE_NAME);
+            localStorage.removeItem('dr_offlineModeEnabled');
+            localStorage.removeItem('dr_offlineOstPlayer');
+            offlineToggle.checked = false;
+          }
+
+          async function toggleOfflineMode() {
+            const cacheStatusContainer = document.getElementById('cacheStatus');
+
+            if (offlineToggle.checked) {
+              // --- ENABLE OFFLINE MODE ---
+              const isVerified = localStorage.getItem('deltaverif') === 'fea2fb654f17156a8393d060f5b8a2d3833fdf96325b698da7596c76a2d041e9';
+
+              if (isVerified) {
+                const wantsToEnable = confirm("Enabling Offline Mode will download files, allowing you to play on this site even if you're offline. Keep in mind that this will take some time, and that you will not receive updates until you disable and re-enable Offline Mode. Continue?");
+
+                if (wantsToEnable) {
+                  const wantsOstPlayer = confirm("Also download files for the OST PLAYER to use it offline?");
+
+                  // Show the spinner and status text
+                  offlineToggle.disabled = true;
+                  cacheStatusContainer.style.display = 'flex';
+                  cacheSpinner.style.display = 'inline-block';
+                  toggleSwitch.classList.add('downloading');
+                  cacheStatusText.textContent = 'Fetching file lists...';
+
+                  // Fetch the file lists from your text files
+                  let filesToCache = [];
+                  const baseFiles = await fetchFileList('/drweb/cache/base.txt');
+
+                  if (baseFiles.length === 0) {
+                    alert("The base game file list could not be downloaded. Cannot enable Offline Mode.");
+                    offlineToggle.checked = false;
+                    offlineToggle.disabled = false;
+                    cacheSpinner.style.display = 'none';
+                    cacheStatusText.textContent = '';
+                    toggleSwitch.classList.remove('downloading');
+                    cacheStatusContainer.style.display = 'none';
+                    return;
+                  }
+                  filesToCache.push(...baseFiles);
+                  
+                  if (wantsOstPlayer) {
+                    const ostFiles = await fetchFileList('/drweb/cache/ostplayer.txt');
+                    filesToCache.push(...ostFiles);
+                  }
+
+                  try {
+                    const cache = await caches.open(CACHE_NAME);
+                    const failedFiles = await cacheFilesWithProgress(cache, filesToCache);
+
+                    if (failedFiles.length > 0) {
+                      const wantsToProceed = confirm(`Offline Mode is partially enabled, but ${failedFiles.length} files failed to save. The site may not work correctly. Proceed anyway?`);
+                      if (wantsToProceed) {
+                        localStorage.setItem('dr_offlineModeEnabled', 'true');
+                        localStorage.setItem('dr_offlineOstPlayer', wantsOstPlayer);
+                        location.reload();
+                      } else {
+                        await clearCacheAndReset();
+                        location.reload();
+                      }
+                    } else {
+                      alert('All selected files cached successfully! Offline Mode is now enabled.');
+                      localStorage.setItem('dr_offlineModeEnabled', 'true');
+                      localStorage.setItem('dr_offlineOstPlayer', wantsOstPlayer);
+                      location.reload();
+                    }
+                  } catch (error) {
+                    console.error('A critical error occurred during caching:', error);
+                    await clearCacheAndReset();
+                  } finally {
+                    offlineToggle.disabled = false;
+                    cacheSpinner.style.display = 'none';
+                    cacheStatusText.textContent = '';
+                    toggleSwitch.classList.remove('downloading');
+                    cacheStatusContainer.style.display = 'none';
+                  }
+                } else {
+                  offlineToggle.checked = false;
+                }
+              } else {
+                alert("You must verify ownership of DELTARUNE before enabling Offline Mode.");
+                offlineToggle.checked = false;
+                window.location.href = "/drweb/verif.html?redirect=offline";
+              }
+            } else {
+              // --- DISABLE OFFLINE MODE ---
+              await clearCacheAndReset();
+              alert('Offline Mode has been disabled and all locally saved files have been removed!');
+              location.reload();
+            }
+          }
+
+          function updateToggleState() {
+              const drEnabled = localStorage.getItem('dr_offlineModeEnabled') === 'true';
+              const offlineToggleChecked = drEnabled; // checkbox for DR offline mode
+              offlineToggle.checked = offlineToggleChecked;
+
+              // --- Handle DR offline mode ---
+              if (drEnabled) {
+                  BOSSRUSHButton.classList.add('button-disabled');
+                  discordLink.style.display = 'none';
+                  discordWidget.style.display = 'none';
+
+                  const ostPlayerCached = localStorage.getItem('dr_offlineOstPlayer') === 'true';
+                  ostPlayerButton.disabled = !ostPlayerCached;
+                  if (!ostPlayerCached) {
+                      ostPlayerButton.title = "Not available offline. Re-enable Offline Mode and select this option.";
+                      ostPlayerButton.classList.add('button-disabled');
+                  }
+              } else {
+                  BOSSRUSHButton.classList.remove('button-disabled');
+                  discordLink.style.display = 'block';
+                  discordWidget.style.display = 'block';
+
+                  ostPlayerButton.classList.remove('button-disabled');
+                  ostPlayerButton.disabled = false;
+                  ostPlayerButton.title = "";
+              }
+
+              // --- Handle UTWebButton based on presence of ut_offlineModeEnabled ---
+              if (offlineToggleChecked && !localStorage.getItem('ut_offlineModeEnabled')) {
+                  // If offline mode is enabled but UT offline mode is not present, disable button
+                  UTWebButton.classList.add('button-disabled');
+                  UTWebButton.disabled = true;
+                  UTWebButton.title = "UNDERTALEWeb is not available offline. Enable UT Offline Mode to use it.";
+              } else {
+                  UTWebButton.classList.remove('button-disabled');
+                  UTWebButton.disabled = false;
+                  UTWebButton.title = "";
+              }
+          }
+
+          if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+              navigator.serviceWorker.register('/drweb/sw.js', {
+                scope: '/drweb/' // optional, defaults to /drweb/
+              })
+              .then(() => console.log('Service Worker registered successfully!'))
+              .catch(err => console.error('Service Worker registration failed:', err));
+            });
+          }
+
+          updateToggleState();
+          offlineToggle.addEventListener('change', toggleOfflineMode);
+        </script>
+  </body>
+</html>
+
+<!-- DELTARUNEWeb v6 LTS -->
+<!-- made with ❤️ by .shortpie. -->
+<!-- credits to Toby Fox for making DELTARUNE, we love you! -->

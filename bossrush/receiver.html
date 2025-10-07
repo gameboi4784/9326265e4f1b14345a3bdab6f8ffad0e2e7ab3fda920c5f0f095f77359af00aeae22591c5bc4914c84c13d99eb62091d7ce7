@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>receiver</title>
+</head>
+<body>
+    <script>
+        window.addEventListener('message', function(event) {
+            if (event.origin !== 'https://deltarune.win') {
+                return;
+            }
+            if (event.data && event.data.type === 'SET_VERIFICATION_KEY') {
+                try {
+                    const key = event.data.key;
+                    const value = event.data.value;
+                    localStorage.setItem(key, value);
+                    event.source.postMessage({ type: 'KEY_SET_SUCCESS' }, event.origin);
+                } catch (error) {
+                    event.source.postMessage({ type: 'KEY_SET_FAILURE' }, event.origin);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

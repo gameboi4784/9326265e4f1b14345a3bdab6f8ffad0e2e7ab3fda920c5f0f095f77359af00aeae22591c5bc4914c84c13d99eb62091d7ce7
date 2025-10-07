@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>.shortpie.'s LocalSpace!</title>
+
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#000000" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="fav.ico" />
+  </head>
+  <body>
+    <div class="container">
+      <h2 style="font-family: '8BitOperator', sans-serif;">welcome to</h2>
+      <h1 class="shortpie">&nbsp;.shortpie.'s</h1>
+      <br>
+      <br>
+      <img src="localspace.png" alt="LocalSpace!" class="logo" />
+      <div class="button-group">
+          <div id="chapterButtons" class="chapter-buttons">
+            <button id="modLoaderButton" class="chapter-button-3" onclick="location.href='drweb/'">
+              <span class="button-label">DELTARUNEWeb</span>
+            </button>
+            <button class="chapter-button-1" onclick="location.href='utweb/'">
+              <span class="button-label">UNDERTALEWeb</span>
+            </button>
+          </div>
+        <div id="chapterButtons" class="othersite-button">
+          <button class="chapter-button-4" onclick="abb();">
+            <span class="button-label">Open in about:blank?</span>
+          </button>
+        </div>
+      </div>
+      <h5 id="discord-link" style="font-size: 23px; margin-bottom: 14px; margin-top: 32px;">
+          <br><a href="https://discord.gg/4nry3kY6Js" style="color: #5865F2;">Join the Discord for development updates and other projects!</a>
+      </h5>
+      <p>
+        <strong style="font-size: 20px; color: #557;">base homepage made by </strong>
+        <a href="https://github.com/aukak" style="font-size: 20px; color: #007bff; text-decoration: underline;">bog</a>
+      </p>
+      <script>
+      function abb() {
+        const newTab = window.open('about:blank', '_blank');
+        if (!newTab) {
+          alert('Pop-up blocked! Please allow pop-ups...');
+          return;
+        }
+
+        newTab.document.open();
+        newTab.document.write(`
+          <html>
+            <head>
+              <title>&#8203;</title> <!-- invisible title -->
+              <style>
+                html, body {
+                  margin: 0;
+                  padding: 0;
+                  background: black;
+                  overflow: hidden;
+                  height: 100%;
+                  width: 100%;
+                }
+                iframe {
+                  border: none;
+                  width: 100%;
+                  height: 100%;
+                }
+              </style>
+            </head>
+            <body>
+              <iframe id="localFrame" src="about:blank"></iframe>
+            </body>
+          </html>
+        `);
+        newTab.document.close();
+
+        const interval = setInterval(() => {
+          const frame = newTab.document.getElementById('localFrame');
+          if (frame && frame.contentDocument) {
+            clearInterval(interval);
+
+            let html = document.documentElement.outerHTML;
+            html = html.replace(/<link[^>]*rel=["']icon["'][^>]*>/gi, '');
+            html = html.replace(/<title>.*?<\/title>/i, '<title>&#8203;</title>');
+
+            frame.contentDocument.open();
+            frame.contentDocument.write(html);
+            frame.contentDocument.close();
+          }
+        }, 50);
+      }
+      </script>
+      <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/sw_root.js', { scope: '/' })
+            .then(() => console.log('Root SW registered!'))
+            .catch(err => console.error('Root SW registration failed:', err));
+        }
+      </script>
+      <div id="gameFrame" class="game-frame hidden"></div>
+  </body>
+</html>
+
+<!-- DELTARUNEWeb v6 LTS / UNDERTALEWeb v14 LTS-->
+<!-- made with ❤️ by .shortpie. -->
+<!-- credits to Toby Fox for making DELTARUNE & UNDERTALE, we love you! -->
