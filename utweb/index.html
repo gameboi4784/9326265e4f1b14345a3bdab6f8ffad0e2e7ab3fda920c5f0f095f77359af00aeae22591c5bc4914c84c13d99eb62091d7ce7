@@ -100,7 +100,8 @@
       <script>
           async function loadthingy(path) {
             try {
-              const res = await fetch(`${path}/index.html`);
+              const base = document.querySelector('base')?.href || window.location.origin;
+              const res = await fetch(`${base}${path}/index.html`);
               if (!res.ok) throw new Error(`Failed to load ${path}`);
               const html = await res.text();
               document.documentElement.innerHTML = html;
