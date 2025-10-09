@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>.shortpie.'s UNDERTALE web port!</title>
-    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/test@main/">
+    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/test2@main/">
     <meta name="theme-color" content="#000000" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="fav.ico" />
@@ -98,11 +98,10 @@
       </p>
       <div id="gameFrame" class="game-frame hidden"></div>
       <script>
-          async function loadthingy(path) {
+          async function loadthingy(url) {
             try {
-              const base = document.querySelector('base')?.href || window.location.origin;
-              const res = await fetch(`${base}${path}/index.html`);
-              if (!res.ok) throw new Error(`Failed to load ${path}`);
+              const res = await fetch(url);
+              if (!res.ok) throw new Error(`Failed to load ${url}`);
               const html = await res.text();
               document.documentElement.innerHTML = html;
               document.documentElement.querySelectorAll('script').forEach(oldScript => {
@@ -120,33 +119,22 @@
             }
           }
           
-          async function loadverif() {
-            try {
-              const res = await fetch(`verif.html`);
-              if (!res.ok) throw new Error(`fail 😂`);
-              const html = await res.text();
-              document.documentElement.innerHTML = html;
-              document.documentElement.querySelectorAll('script').forEach(oldScript => {
-                const newScript = document.createElement('script');
-                if (oldScript.src) {
-                  newScript.src = oldScript.src;
-                } else {
-                  newScript.textContent = oldScript.textContent;
-                }
-                document.body.appendChild(newScript);
-              });
-            } catch (err) {
-              console.error(err);
-              alert("yo error or sm idk 🥀");
-            }
-          }
-          
-          document.getElementById('drweb').addEventListener('click', () => loadthingy('../drweb'));
-          document.getElementById('utyweb').addEventListener('click', () => loadthingy('../utyweb'));
-          document.getElementById('play').addEventListener('click', () => loadthingy('play'));
-          document.getElementById('ostPlayerButton').addEventListener('click', () => loadthingy('music'));
-          document.getElementById('10th').addEventListener('click', () => loadthingy('10th'));
-          
+          const base = document.querySelector('base')?.href || window.location.origin;
+          document.getElementById('10th').addEventListener('click', () =>
+            loadthingy(`${base}utweb/10th/index.html`)
+          );
+          document.getElementById('play').addEventListener('click', () =>
+            loadthingy(`${base}utweb/play/index.html`)
+          );
+          document.getElementById('ostPlayerButton').addEventListener('click', () =>
+            loadthingy(`${base}utweb/music/index.html`)
+          );
+          document.getElementById('drweb').addEventListener('click', () =>
+            loadthingy(`${base}drweb/index.html`)
+          );
+          document.getElementById('utyweb').addEventListener('click', () =>
+            loadthingy(`${base}utyweb/index.html`)
+          );
           
           // --- SELECTORS FOR BUTTONS AND OTHER ELEMENTS ---
           const DRWebButton = document.querySelector('.chapter-button-4');
