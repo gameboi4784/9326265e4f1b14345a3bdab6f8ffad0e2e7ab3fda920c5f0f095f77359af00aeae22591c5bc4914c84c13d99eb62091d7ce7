@@ -1,23 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-EML3JRV6BQ"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-          dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'G-EML3JRV6BQ');
-      </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>.shortpie.'s UNDERTALE web port!</title>
-
-    <link rel="manifest" href="/manifest.json" />
+    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/fe228e8cc2d071e5b09daad4103c94e199ec05c082563600011cbdc7eaa970a43956ddef4c9f829b5282d9ded24e7c59c115@main/">
     <meta name="theme-color" content="#000000" />
-
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="fav.ico" />
   </head>
@@ -52,21 +40,21 @@
       </script>
       <div class="button-group">
           <div id="chapterButtons" class="chapter-buttons">
-            <button class="chapter-button-3" onclick="location.href='10th/'">
+            <button id="10th" class="chapter-button-3">
               <span class="button-label">10TH BATTLE</span>
             </button>
-            <button class="chapter-button-1" onclick="location.href='play/'">
+            <button id="play" class="chapter-button-1">
               <span class="button-label">START</span>
             </button>
-            <button id="ostPlayerButton" class="chapter-button-2" onclick="location.href='music/'">
+            <button id="ostPlayerButton" class="chapter-button-2">
               <span class="button-label">OST PLAYER</span>
             </button>
           </div>
           <div id="chapterButtons" class="othersite-button">
-            <button class="chapter-button-4" onclick="location.href='/drweb/'">
+            <button id="drweb" class="chapter-button-4">
               <span class="button-label">DELTARUNEWeb</span>
             </button>
-            <button class="chapter-button-5" onclick="location.href='/utyweb/'">
+            <button id="utyweb" class="chapter-button-5">
               <span class="button-label">UTYellowWeb</span>
             </button>
           </div>
@@ -110,6 +98,55 @@
       </p>
       <div id="gameFrame" class="game-frame hidden"></div>
       <script>
+          async function loadthingy(path) {
+            try {
+              const res = await fetch(`${path}/index.html`);
+              if (!res.ok) throw new Error(`Failed to load ${path}`);
+              const html = await res.text();
+              document.documentElement.innerHTML = html;
+              document.documentElement.querySelectorAll('script').forEach(oldScript => {
+                const newScript = document.createElement('script');
+                if (oldScript.src) {
+                  newScript.src = oldScript.src;
+                } else {
+                  newScript.textContent = oldScript.textContent;
+                }
+                document.body.appendChild(newScript);
+              });
+            } catch (err) {
+              console.error(err);
+              alert("yo error or sm idk 🥀");
+            }
+          }
+          
+          async function loadverif() {
+            try {
+              const res = await fetch(`verif.html`);
+              if (!res.ok) throw new Error(`fail 😂`);
+              const html = await res.text();
+              document.documentElement.innerHTML = html;
+              document.documentElement.querySelectorAll('script').forEach(oldScript => {
+                const newScript = document.createElement('script');
+                if (oldScript.src) {
+                  newScript.src = oldScript.src;
+                } else {
+                  newScript.textContent = oldScript.textContent;
+                }
+                document.body.appendChild(newScript);
+              });
+            } catch (err) {
+              console.error(err);
+              alert("yo error or sm idk 🥀");
+            }
+          }
+          
+          document.getElementById('drweb').addEventListener('click', () => loadthingy('/drweb'));
+          document.getElementById('utyweb').addEventListener('click', () => loadthingy('/utyweb'));
+          document.getElementById('play').addEventListener('click', () => loadthingy('play'));
+          document.getElementById('ostPlayerButton').addEventListener('click', () => loadthingy('music'));
+          document.getElementById('10th').addEventListener('click', () => loadthingy('10th'));
+          
+          
           // --- SELECTORS FOR BUTTONS AND OTHER ELEMENTS ---
           const DRWebButton = document.querySelector('.chapter-button-4');
           const ostPlayerButton = document.getElementById('ostPlayerButton');
@@ -253,7 +290,7 @@
               } else {
                 alert("You must verify ownership of UNDERTALE before enabling Offline Mode.");
                 offlineToggle.checked = false;
-                window.location.href = "/utweb/verif.html?redirect=offline";
+                loadverif();
               }
             } else {
               // --- DISABLE OFFLINE MODE ---

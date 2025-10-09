@@ -4,43 +4,72 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>.shortpie.'s LocalSpace!</title>
-
-    <link rel="manifest" href="/manifest.json" />
+    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/fe228e8cc2d071e5b09daad4103c94e199ec05c082563600011cbdc7eaa970a43956ddef4c9f829b5282d9ded24e7c59c115@main/">
     <meta name="theme-color" content="#000000" />
-
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="fav.ico" />
   </head>
+
   <body>
     <div class="container">
       <h2 style="font-family: '8BitOperator', sans-serif;">welcome to</h2>
       <h1 class="shortpie">&nbsp;.shortpie.'s</h1>
-      <br>
-      <br>
+      <br><br>
       <img src="localspace.png" alt="LocalSpace!" class="logo" />
+
       <div class="button-group">
-          <div id="chapterButtons" class="chapter-buttons">
-            <button id="modLoaderButton" class="chapter-button-3" onclick="location.href='drweb/'">
-              <span class="button-label">DELTARUNEWeb</span>
-            </button>
-            <button class="chapter-button-1" onclick="location.href='utweb/'">
-              <span class="button-label">UNDERTALEWeb</span>
-            </button>
-          </div>
-        <div id="chapterButtons" class="othersite-button">
-          <button class="chapter-button-4" onclick="abb();">
+        <div class="chapter-buttons">
+          <button id="drweb" class="chapter-button-3">
+            <span class="button-label">DELTARUNEWeb</span>
+          </button>
+          <button id="utweb" class="chapter-button-1">
+            <span class="button-label">UNDERTALEWeb</span>
+          </button>
+        </div>
+
+        <div class="othersite-button">
+          <button id="abb" class="chapter-button-4">
             <span class="button-label">Open in about:blank?</span>
           </button>
         </div>
       </div>
+
       <h5 id="discord-link" style="font-size: 23px; margin-bottom: 14px; margin-top: 32px;">
-          <br><a href="https://discord.gg/4nry3kY6Js" style="color: #5865F2;">Join the Discord for development updates and other projects!</a>
+        <br><a href="https://discord.gg/4nry3kY6Js" style="color: #5865F2;">
+          Join the Discord for development updates and other projects!
+        </a>
       </h5>
+
       <p>
         <strong style="font-size: 20px; color: #557;">base homepage made by </strong>
         <a href="https://github.com/aukak" style="font-size: 20px; color: #007bff; text-decoration: underline;">bog</a>
       </p>
-      <script>
+    </div>
+
+    <div id="gameFrame" class="game-frame hidden"></div>
+
+    <script>
+        async function loadthingy(path) {
+          try {
+            const res = await fetch(`${path}/index.html`);
+            if (!res.ok) throw new Error(`Failed to load ${path}`);
+            const html = await res.text();
+            document.documentElement.innerHTML = html;
+            document.documentElement.querySelectorAll('script').forEach(oldScript => {
+              const newScript = document.createElement('script');
+              if (oldScript.src) {
+                newScript.src = oldScript.src;
+              } else {
+                newScript.textContent = oldScript.textContent;
+              }
+              document.body.appendChild(newScript);
+            });
+          } catch (err) {
+            console.error(err);
+            alert("yo error or sm idk 🥀");
+          }
+        }
+
       function abb() {
         const newTab = window.open('about:blank', '_blank');
         if (!newTab) {
@@ -52,7 +81,7 @@
         newTab.document.write(`
           <html>
             <head>
-              <title>&#8203;</title> <!-- invisible title -->
+              <title>&#8203;</title>
               <style>
                 html, body {
                   margin: 0;
@@ -91,18 +120,16 @@
           }
         }, 50);
       }
-      </script>
-      <script>
-        if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('/sw_root.js', { scope: '/' })
-            .then(() => console.log('Root SW registered!'))
-            .catch(err => console.error('Root SW registration failed:', err));
-        }
-      </script>
-      <div id="gameFrame" class="game-frame hidden"></div>
+
+      document.getElementById('drweb').addEventListener('click', () => loadthingy('drweb'));
+      document.getElementById('utweb').addEventListener('click', () => loadthingy('utweb'));
+      document.getElementById('abb').addEventListener('click', abb);
+
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw_root.js', { scope: '/' })
+          .then(() => console.log('Root SW registered!'))
+          .catch(err => console.error('Root SW registration failed:', err));
+      }
+    </script>
   </body>
 </html>
-
-<!-- DELTARUNEWeb v6 LTS / UNDERTALEWeb v14 LTS-->
-<!-- made with ❤️ by .shortpie. -->
-<!-- credits to Toby Fox for making DELTARUNE & UNDERTALE, we love you! -->
