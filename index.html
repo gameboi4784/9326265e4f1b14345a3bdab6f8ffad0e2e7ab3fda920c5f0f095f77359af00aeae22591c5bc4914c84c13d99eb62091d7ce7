@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>.shortpie.'s LocalSpace!</title>
-    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas6@main/">
+    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas7@main/">
     <meta name="theme-color" content="#000000" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="fav.ico" />
+    <link rel="stylesheet" href="$base/style.css" />
+    <link rel="icon" href="$base/fav.ico" />
   </head>
 
   <body>
@@ -47,7 +47,19 @@
     </div>
 
     <div id="gameFrame" class="game-frame hidden"></div>
-
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const base = document.querySelector('base')?.href || window.location.origin + '/';
+      document.querySelectorAll('[src], [href], [data-src], [data-href]').forEach(el => {
+        for (const attr of ['src', 'href', 'data-src', 'data-href']) {
+          const val = el.getAttribute(attr);
+          if (val && val.includes('$base')) {
+            el.setAttribute(attr, val.replace(/\$base\/?/g, base));
+          }
+        }
+      });
+    });
+    </script>
     <script>
         async function loadthingy(path) {
           try {
