@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UNDERTALEWeb OST Player!</title>
-    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas17@main/">
-    <link rel="icon" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas17@main/utweb/fav.ico" />
-    <script src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas17@main/utweb/music/jsmediatags.min.js"></script>
+    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas18@main/">
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas18@main/utweb/fav.ico" />
+    <script src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas18@main/utweb/music/jsmediatags.min.js"></script>
     <style>
       :root {
         --primary-bg: rgba(0, 0, 0, 0.75);
@@ -18,7 +18,7 @@
 
       @font-face {
         font-family: "Determination";
-        src: url("https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas17@main/fonts/8bitOperatorPlus-Bold.ttf") format("truetype");
+        src: url("https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas18@main/fonts/8bitOperatorPlus-Bold.ttf") format("truetype");
         font-weight: normal;
         font-style: normal;
       }
@@ -61,7 +61,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url('bg.gif');
+        background-image: url('https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas18@main/utweb/music/bg.gif');
         background-size: cover;
         background-position: center;
         opacity: 0;
@@ -568,7 +568,7 @@
           <button id="back-to-list-btn" title="Back to list">&#10094;</button>
           <div id="player-content-wrapper">
             <div id="album-art-container">
-              <img src="flowey.png" id="album-gif-overlay">
+              <img src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas18@main/utweb/music/flowey.png" id="album-gif-overlay">
               <img src="https://placehold.co/300x300/000000/FFFFFF?text=Album+Art" alt="Album Cover" id="player-album-cover">
             </div>
             <div id="player-info">
@@ -633,8 +633,8 @@
         loop_one: 'oneloop.png',
         loop_all: 'onloop.png'
       };
-      const animatedGifSrc = 'flowey.gif';
-      const pausedGifSrc = 'flowey.png';
+      const animatedGifSrc = 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas18@main/utweb/music/flowey.gif';
+      const pausedGifSrc = 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas18@main/utweb/music/flowey.png';
       let masterSongList = [];
       let songs = [];
       let currentSongIndex = 0;
@@ -700,7 +700,7 @@
       }
       async function loadPlaylist() {
         try {
-          const response = await fetch('https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas17@main/utweb/music/mus/list.txt');
+          const response = await fetch('https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas18@main/utweb/music/mus/list.txt');
           if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
           const text = await response.text();
           const filenames = text.split('\n').filter(line => line.trim() !== '');
@@ -718,8 +718,8 @@
                                                                             </p>`;
           const songPromises = filenames.map(async (filename, index) => {
             const trimmedFilename = filename.trim();
-            const metadataUrl = `mus/${trimmedFilename}`;
-            const audioSrc = `mus/${trimmedFilename}`;
+            const metadataUrl = `utweb/music/mus/${trimmedFilename}`;
+            const audioSrc = `utweb/music/mus/${trimmedFilename}`;
             const [metadata, duration] = await Promise.all([
               getSongMetadata(metadataUrl, audioSrc),
               getSongDuration(audioSrc)
