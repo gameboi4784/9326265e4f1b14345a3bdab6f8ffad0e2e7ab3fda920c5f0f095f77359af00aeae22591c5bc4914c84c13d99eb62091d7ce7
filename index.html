@@ -124,12 +124,6 @@
       document.getElementById('drweb').addEventListener('click', () => loadthingy('drweb'));
       document.getElementById('utweb').addEventListener('click', () => loadthingy('utweb'));
       document.getElementById('abb').addEventListener('click', abb);
-
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw_root.js', { scope: '/' })
-          .then(() => console.log('Root SW registered!'))
-          .catch(err => console.error('Root SW registration failed:', err));
-      }
     </script>
   </body>
 </html>
