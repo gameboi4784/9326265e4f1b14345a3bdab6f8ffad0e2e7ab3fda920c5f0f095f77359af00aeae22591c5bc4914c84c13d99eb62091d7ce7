@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/test7/utweb/play/">
+    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/test8/utweb/play/">
     <body oncontextmenu="return false;">
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -11,8 +11,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="icon" type="x-icon" href="fav.ico">
     <title>UNDERTALE</title>
-    <link rel="stylesheet" href="utweb/ut.css">
-    <script src="utweb/jszip.min.js"></script>
+    <link rel="stylesheet" href="ut.css">
+    <script src="jszip.min.js"></script>
   </head>
 
   <body>
@@ -23,15 +23,6 @@
         <noscript class="nsmessage">This requires JavaScript and WebAssembly to be enabled in your browser.</noscript>
         <div class="emscripten" id="status">Loading...</div>
         <progress value="0" max="100" id="progress" hidden="1"></progress>
-      </div>
-      <div id="mobile-controls">
-        <div id="joystick-zone"></div>
-        <div id="button-zone">
-          <img class="action-button" id="button-c" alt="C Button">
-          <img class="action-button" id="button-x" alt="X Button">
-          <img class="action-button" id="button-z" alt="Z Button">
-          <div id="dpad-container"></div>
-        </div>
       </div>
       <div class="output-container" id="output-container">
       <button class="output-button" id="fullscreen" title="Toggle Fullscreen">Toggle Fullscreen?</button>
@@ -1369,6 +1360,6 @@
       })
       .catch(err => console.error("Failed to merge parts:", err));
     </script>
-    <script src="utweb/controller.js"></script>
+    <script src="controller.js"></script>
 </body>
 </html>
