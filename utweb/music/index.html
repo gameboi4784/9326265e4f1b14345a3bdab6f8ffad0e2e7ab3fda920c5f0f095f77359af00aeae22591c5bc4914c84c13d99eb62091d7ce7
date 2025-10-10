@@ -6,7 +6,7 @@
     <title>UNDERTALEWeb OST Player!</title>
     <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas18@main/">
     <link rel="icon" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas18@main/utweb/fav.ico" />
-    <script src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas18@main/utweb/music/jsmediatags.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wowzas19/3.9.5/wowzas19.min.js"></script>
     <style>
       :root {
         --primary-bg: rgba(0, 0, 0, 0.75);
@@ -786,7 +786,7 @@
       function getSongMetadata(metadataUrl, audioSrc) {
         return fetch(audioSrc).then(res => res.blob()).then(blob => {
           return new Promise((resolve) => {
-            window.jsmediatags.read(blob, {
+            window.wowzas19.read(blob, {
               onSuccess: (tag) => {
                 const {
                   title,
