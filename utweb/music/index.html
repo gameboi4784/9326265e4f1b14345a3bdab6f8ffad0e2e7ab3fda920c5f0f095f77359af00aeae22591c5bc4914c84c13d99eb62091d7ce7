@@ -2,11 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas15@main/utweb/music/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UNDERTALEWeb OST Player!</title>
-    <link rel="icon" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas15@main/utweb/fav.ico" />
-    <script src="jsmediatags.min.js"></script>
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas16@main/utweb/fav.ico" />
+    <script src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas16@main/utweb/music/jsmediatags.min.js"></script>
     <style>
       :root {
         --primary-bg: rgba(0, 0, 0, 0.75);
@@ -18,7 +17,7 @@
 
       @font-face {
         font-family: "Determination";
-        src: url("https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas15@main/utweb/fonts/8bitOperatorPlus-Bold.ttf") format("truetype");
+        src: url("https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas16@main/fonts/8bitOperatorPlus-Bold.ttf") format("truetype");
         font-weight: normal;
         font-style: normal;
       }
@@ -621,627 +620,653 @@
       </div>
     </div>
     <script>
-        let hasPlayedThisSession = false;
-              const buttonImages = {
-                play: 'play.png',
-                pause: 'pause.png',
-                next: 'next.png',
-                prev: 'prev.png',
-                shuffle_on: 'onshuffle.png',
-                shuffle_off: 'shuffle.png',
-                loop_none: 'loop.png',
-                loop_one: 'oneloop.png',
-                loop_all: 'onloop.png'
-              };
-              const songslol = ["mus/067. Oh My.mp3", "mus/029. Danger Mystery.mp3", "mus/084. Amalgam.mp3", "mus/098. Battle Against A True Hero.mp3", "mus/091. Final Power.mp3", "mus/Ultranap.mp3", "mus/079. Your Best Nightmare.mp3", "mus/064. CORE Approach.mp3", "mus/061. Oh! One True Love.mp3", "mus/040. Ghouliday.mp3", "mus/028. Premonition.mp3", "mus/071. Undertale.mp3", "mus/069. For The Fans.mp3", "mus/030. Undyne.mp3", "mus/044. Tem Shop.mp3", "mus/025. Dating Start!.mp3", "mus/006. Uwa!! So Temperate♫.mp3", "mus/051. Another Medium.mp3", "mus/009. Enemy Approaching.mp3", "mus/Snowdrift.mp3", "mus/074. Small Shock.mp3", "mus/078. You Idiot.mp3", "mus/059. Spider Dance.mp3", "mus/075. Barrier.mp3", "mus/076. Bergentrückung.mp3", "mus/Snowed Inn Jazz.mp3", "mus/093. Menu (Full).mp3", "mus/055. Can You Really Call This A Hotel, I Didn't Receive A Mint On My Pillow Or Anything.mp3", "mus/002. Start Menu.mp3", "mus/099. Power Of _NEO_.mp3", "mus/042. Thundersnail.mp3", "mus/020. Mysterious Place.mp3", "mus/005. Ruins.mp3", "mus/021. Dogsong.mp3", "mus/031. Waterfall.mp3", "mus/043. Temmie Village.mp3", "mus/012. Home.mp3", "mus/037. Pathetic House.mp3", "mus/101. Good Night.mp3", "mus/090. His Theme.mp3", "mus/022. Snowdin Town.mp3", "mus/046. Spear of Justice.mp3", "mus/047. Ooo.mp3", "mus/096. Last Goodbye.mp3", "mus/092. Reunited.mp3", "mus/086. Don't Give Up.mp3", "mus/Memory (10 Years Later).mp3", "mus/038. Spooktune.mp3", "mus/089. SAVE The World.mp3", "mus/039. Spookwave.mp3", "mus/095. Bring It In, Guys!.mp3", "mus/Pseudo Legendary Tree.mp3", "mus/Underwater Town.mp3", "mus/056. Confession.mp3", "mus/073. The Choice.mp3", "mus/080. Finale.mp3", "mus/060. Wrong Enemy !_.mp3", "mus/019. Dogbass.mp3", "mus/041. Chill.mp3", "mus/088. Burn In Despair!.mp3", "mus/Song That Plays When Somebody Verses Sans.mp3", "mus/058. Death Report.mp3", "mus/015. sans.mp3", "mus/Doghole.mp3", "mus/007. Anticipation.mp3", "mus/050. Metal Crusher.mp3", "mus/085. Fallen Down (Reprise).mp3", "mus/081. An Ending.mp3", "mus/097. But The Earth Refused To Die.mp3", "mus/033. Quiet Water.mp3", "mus/036. Dummy!.mp3", "mus/072. Song That Might Play When You Fight Sans.mp3", "mus/077. ASGORE.mp3", "mus/018. Uwa!! So Holiday♫.mp3", "mus/057. Live Report.mp3", "mus/Strongerer Monsters.mp3", "mus/034. Memory.mp3", "mus/066. Last Episode!.mp3", "mus/004. Fallen Down.mp3", "mus/094. Respite.mp3", "mus/032. Run!.mp3", "mus/083. Here We Are.mp3", "mus/035. Bird That Carries You Over A Disproportionately Small Gap.mp3", "mus/011. Determination.mp3", "mus/049. It's Showtime!.mp3", "mus/052. Uwa!! So HEATS!!♫.mp3", "mus/065. CORE.mp3", "mus/008. Unnecessary Tension.mp3", "mus/062. Oh! Dungeon.mp3", "mus/026. Dating Tense!.mp3", "mus/053. Stronger Monsters.mp3", "mus/014. Heartache.mp3", "mus/087. Hopes And Dreams.mp3", "mus/048. Alphys.mp3", "mus/054. Hotel.mp3", "mus/082. She's Playing Piano.mp3", "mus/Abandoned Town.mp3", "mus/010. Ghost Fight.mp3", "mus/017. Snowy.mp3", "mus/100. MEGALOVANIA.mp3", "mus/024. Bonetrousle.mp3", "mus/016. Nyeh Heh Heh!.mp3", "mus/027. Dating Fight!.mp3", "mus/045. NGAHHH!!.mp3", "mus/070. Long Elevator.mp3", "mus/068. Death By Glamour.mp3", "mus/003. Your Best Friend.mp3", "mus/Wrong Number Remix.mp3", "mus/what's up.mp3", "mus/023. Shop.mp3", "mus/001. Once Upon a Time.mp3", "mus/063. It's Raining Somewhere Else.mp3", "mus/013. Home (Music Box).mp3", "mus/School.mp3", ];
-              const animatedGifSrc = 'flowey.gif';
-              const pausedGifSrc = 'flowey.png';
-              let masterSongList = [];
-              let songs = [];
-              let currentSongIndex = 0;
-              let isPlaying = false;
-              let isShuffling = false;
-              let loopMode = 'none';
-              let currentSort = 'albumTrack';
-              let playbackQueue = [];
-              let previousQueue = [];
-              let nextQueue = [];
-              let isFirstQueue = true;
-              let hasSeenPlayer = false;
-              const placeholderCover = 'https://placehold.co/300x300/000000/FFFFFF?text=No+Art';
-              const audio = document.getElementById('audio-source');
-              const songList = document.getElementById('song-list');
-              const playerView = document.getElementById('player-view');
-              const albumArtContainer = document.getElementById('album-art-container');
-              const albumGifOverlay = document.getElementById('album-gif-overlay');
-              const songListView = document.getElementById('song-list-view');
-              const miniPlayer = document.getElementById('mini-player');
-              const backgroundGif = document.getElementById('background-gif');
-              const playerAlbumCover = document.getElementById('player-album-cover');
-              const playerTitle = document.getElementById('player-title');
-              const playerArtist = document.getElementById('player-artist');
-              const playerAlbum = document.getElementById('player-album');
-              const shuffleBtnImg = document.getElementById('shuffle-btn-img');
-              const prevBtnImg = document.getElementById('prev-btn-img');
-              const playPauseBtnImg = document.getElementById('play-pause-btn-img');
-              const nextBtnImg = document.getElementById('next-btn-img');
-              const loopBtnImg = document.getElementById('loop-btn-img');
-              const miniShuffleBtnImg = document.getElementById('mini-shuffle-btn-img');
-              const miniPrevBtnImg = document.getElementById('mini-prev-btn-img');
-              const miniPlayPauseBtnImg = document.getElementById('mini-play-pause-btn-img');
-              const miniNextBtnImg = document.getElementById('mini-next-btn-img');
-              const miniLoopBtnImg = document.getElementById('mini-loop-btn-img');
-              const progressContainer = document.getElementById('progress-container');
-              const progressBar = document.getElementById('progress-bar');
-              const currentTimeEl = document.getElementById('current-time');
-              const durationEl = document.getElementById('duration');
-              const backToListBtn = document.getElementById('back-to-list-btn');
-              const miniPlayerLeft = document.querySelector('.mini-player-left');
-              const miniPlayerCover = document.getElementById('mini-player-cover');
-              const miniPlayerTitle = document.getElementById('mini-player-title');
-              const miniPlayerArtist = document.getElementById('mini-player-artist');
-              const miniHoverTime = document.getElementById('mini-hover-time');
-              const miniHoverDuration = document.getElementById('mini-hover-duration');
-              const miniProgressContainer = document.getElementById('mini-progress-container');
-              const miniProgressBar = document.getElementById('mini-progress-bar');
+      let hasPlayedThisSession = false;
+      const buttonImages = {
+        play: 'play.png',
+        pause: 'pause.png',
+        next: 'next.png',
+        prev: 'prev.png',
+        shuffle_on: 'onshuffle.png',
+        shuffle_off: 'shuffle.png',
+        loop_none: 'loop.png',
+        loop_one: 'oneloop.png',
+        loop_all: 'onloop.png'
+      };
+      const animatedGifSrc = 'flowey.gif';
+      const pausedGifSrc = 'flowey.png';
+      let masterSongList = [];
+      let songs = [];
+      let currentSongIndex = 0;
+      let isPlaying = false;
+      let isShuffling = false;
+      let loopMode = 'none';
+      let currentSort = 'albumTrack';
+      let playbackQueue = [];
+      let previousQueue = [];
+      let nextQueue = [];
+      let isFirstQueue = true;
+      let hasSeenPlayer = false;
+      const placeholderCover = 'https://placehold.co/300x300/000000/FFFFFF?text=No+Art';
+      const audio = document.getElementById('audio-source');
+      const songList = document.getElementById('song-list');
+      const playerView = document.getElementById('player-view');
+      const albumArtContainer = document.getElementById('album-art-container');
+      const albumGifOverlay = document.getElementById('album-gif-overlay');
+      const songListView = document.getElementById('song-list-view');
+      const miniPlayer = document.getElementById('mini-player');
+      const backgroundGif = document.getElementById('background-gif');
+      const playerAlbumCover = document.getElementById('player-album-cover');
+      const playerTitle = document.getElementById('player-title');
+      const playerArtist = document.getElementById('player-artist');
+      const playerAlbum = document.getElementById('player-album');
+      const shuffleBtnImg = document.getElementById('shuffle-btn-img');
+      const prevBtnImg = document.getElementById('prev-btn-img');
+      const playPauseBtnImg = document.getElementById('play-pause-btn-img');
+      const nextBtnImg = document.getElementById('next-btn-img');
+      const loopBtnImg = document.getElementById('loop-btn-img');
+      const miniShuffleBtnImg = document.getElementById('mini-shuffle-btn-img');
+      const miniPrevBtnImg = document.getElementById('mini-prev-btn-img');
+      const miniPlayPauseBtnImg = document.getElementById('mini-play-pause-btn-img');
+      const miniNextBtnImg = document.getElementById('mini-next-btn-img');
+      const miniLoopBtnImg = document.getElementById('mini-loop-btn-img');
+      const progressContainer = document.getElementById('progress-container');
+      const progressBar = document.getElementById('progress-bar');
+      const currentTimeEl = document.getElementById('current-time');
+      const durationEl = document.getElementById('duration');
+      const backToListBtn = document.getElementById('back-to-list-btn');
+      const miniPlayerLeft = document.querySelector('.mini-player-left');
+      const miniPlayerCover = document.getElementById('mini-player-cover');
+      const miniPlayerTitle = document.getElementById('mini-player-title');
+      const miniPlayerArtist = document.getElementById('mini-player-artist');
+      const miniHoverTime = document.getElementById('mini-hover-time');
+      const miniHoverDuration = document.getElementById('mini-hover-duration');
+      const miniProgressContainer = document.getElementById('mini-progress-container');
+      const miniProgressBar = document.getElementById('mini-progress-bar');
 
-              function formatArtists(artistString) {
-                if (!artistString || !artistString.includes('/')) {
-                  return artistString;
-                }
-                const artists = artistString.split('/').map(name => name.trim());
-                if (artists.length === 1) {
-                  return artists[0];
-                } else if (artists.length === 2) {
-                  return artists.join(' & ');
-                } else {
-                  const lastArtist = artists.pop();
-                  return `${artists.join(', ')} & ${lastArtist}`;
-                }
-              }
-              async function loadPlaylist() {
-                try {
-                  const filenames = songslol;
-                  if (filenames.length === 0) {
-                    displayError("Playlist is empty.");
-                    return;
-                  }
-                  songList.innerHTML = `<p style="color: var(--text-secondary);">Loading songs... <br> (0/${filenames.length} loaded)</p>`;
-                  const loadedSongs = [];
-                  for (let i = 0; i < filenames.length; i++) {
-                    const filename = filenames[i];
-                    const trimmedFilename = filename.trim();
-                    const audioSrc = trimmedFilename;
-                    try {
-                      const [metadata, duration] = await Promise.all([getSongMetadata(audioSrc, audioSrc), getSongDuration(audioSrc)]);
-                      metadata.duration = duration;
-                      loadedSongs.push(metadata);
-                      songList.innerHTML = `<p style="color: var(--text-secondary);">Loading songs... <br> (${i + 1}/${filenames.length} loaded)</p>`;
-                    } catch (songError) {
-                      console.error(`Failed to load song: ${filename}`, songError);
-                    }
-                  }
-                  masterSongList = loadedSongs;
-                  songs = [...masterSongList];
-                  applySort(currentSort);
-                  initializePlayer();
-                } catch (error) {
-                  console.error("Error in loadPlaylist function:", error);
-                  displayError("A critical error occurred while loading the playlist.");
-                }
-              }
+      function formatArtists(artistString) {
+        if (!artistString || !artistString.includes('/')) {
+          return artistString;
+        }
+        const artists = artistString.split('/').map(name => name.trim());
+        if (artists.length === 1) {
+          return artists[0];
+        } else if (artists.length === 2) {
+          return artists.join(' & ');
+        } else {
+          const lastArtist = artists.pop();
+          return `${artists.join(', ')} & ${lastArtist}`;
+        }
+      }
+      async function loadPlaylist() {
+        try {
+          const response = await fetch('mus/list.txt');
+          if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+          const text = await response.text();
+          const filenames = text.split('\n').filter(line => line.trim() !== '');
+          if (filenames.length === 0) {
+            displayError("Playlist file is empty.");
+            return;
+          }
+          songList.innerHTML = `
 
-              function updateMinibar() {
-                if (!playbackQueue[currentSongIndex]) return;
-                const song = playbackQueue[currentSongIndex];
-                miniPlayerCover.src = song.cover || placeholderCover;
-                miniPlayerTitle.textContent = song.title;
-                miniPlayerArtist.textContent = formatArtists(song.artist);
-                if (hasPlayedThisSession && !playerView.classList.contains('active')) {
-                  miniPlayer.classList.add('visible');
-                  songListView.classList.add('has-mini-player');
-                } else {
-                  miniPlayer.classList.remove('visible');
-                  songListView.classList.remove('has-mini-player');
-                }
-              }
+                                                                        
+                                                                        
+                                                                        
+                                                                        <p style="color: var(--text-secondary);">Loading songs... 
+                                                                            <br> (0/${filenames.length} loaded)
+                                                                            </p>`;
+          const songPromises = filenames.map(async (filename, index) => {
+            const trimmedFilename = filename.trim();
+            const metadataUrl = `mus/${trimmedFilename}`;
+            const audioSrc = `mus/${trimmedFilename}`;
+            const [metadata, duration] = await Promise.all([
+              getSongMetadata(metadataUrl, audioSrc),
+              getSongDuration(audioSrc)
+            ]);
+            metadata.duration = duration;
+            songList.innerHTML = `
 
-              function updatePlayingClass() {
-                document.querySelectorAll('.song-item.playing').forEach(item => item.classList.remove('playing'));
-                const currentSong = playbackQueue[currentSongIndex];
-                if (!currentSong) return;
-                const songItems = document.querySelectorAll('.song-item');
-                songItems.forEach(item => {
-                  const title = item.querySelector('.title')?.textContent;
-                  const artist = item.querySelector('.artist')?.textContent;
-                  if (title === currentSong.title && artist === formatArtists(currentSong.artist)) {
+                                                                        
+                                                                        
+                                                                        
+                                                                            <p style="color: var(--text-secondary);">Loading songs... 
+                                                                                <br> (${index + 1}/${filenames.length} loaded)
+                                                                                </p>`;
+            return metadata;
+          });
+          masterSongList = await Promise.all(songPromises);
+          applySort(currentSort);
+          initializePlayer();
+        } catch (error) {
+          console.error("Error loading playlist:", error);
+          displayError("Could not load 'mus/list.txt'.");
+        }
+      }
+
+      function updateMinibar() {
+        if (!playbackQueue[currentSongIndex]) return;
+        const song = playbackQueue[currentSongIndex];
+        miniPlayerCover.src = song.cover || placeholderCover;
+        miniPlayerTitle.textContent = song.title;
+        miniPlayerArtist.textContent = formatArtists(song.artist);
+        if (hasPlayedThisSession && !playerView.classList.contains('active')) {
+          miniPlayer.classList.add('visible');
+          songListView.classList.add('has-mini-player');
+        } else {
+          miniPlayer.classList.remove('visible');
+          songListView.classList.remove('has-mini-player');
+        }
+      }
+
+        function updatePlayingClass() {
+            document.querySelectorAll('.song-item.playing').forEach(item => item.classList.remove('playing'));
+            const currentSong = playbackQueue[currentSongIndex];
+            if (!currentSong) return;
+            const songItems = document.querySelectorAll('.song-item');
+            songItems.forEach(item => {
+                const title = item.querySelector('.title')?.textContent;
+                const artist = item.querySelector('.artist')?.textContent;
+                if (title === currentSong.title && artist === formatArtists(currentSong.artist)) {
                     item.classList.add('playing');
+                    // optional: add paused class for styling if not playing
                     if (!isPlaying) {
-                      item.classList.add('paused');
+                        item.classList.add('paused');
                     } else {
-                      item.classList.remove('paused');
+                        item.classList.remove('paused');
                     }
-                  }
-                });
-              }
-
-              function filterAlbumName(albumTitle, context) {
-                return albumTitle;
-              }
-
-              function getSongMetadata(metadataUrl, audioSrc) {
-                return fetch(audioSrc).then(res => res.blob()).then(blob => {
-                  return new Promise((resolve, reject) => {
-                    window.jsmediatags.read(blob, {
-                      onSuccess: (tag) => {
-                        const {
-                          title,
-                          artist,
-                          album,
-                          track,
-                          picture
-                        } = tag.tags;
-                        let cover = placeholderCover;
-                        if (picture) {
-                          const uint8 = new Uint8Array(picture.data);
-                          let binary = "";
-                          uint8.forEach(byte => binary += String.fromCharCode(byte));
-                          const base64String = btoa(binary);
-                          cover = `data:${picture.format};base64,${base64String}`;
-                        }
-                        resolve({
-                          title: title || metadataUrl.split('/').pop(),
-                          artist: artist || '???',
-                          album: album || '???',
-                          track: parseInt(track) || 0,
-                          src: audioSrc,
-                          cover
-                        });
-                      },
-                      onError: (error) => {
-                        console.error('jsmediatags error:', error);
-                        resolve({
-                          title: metadataUrl.split('/').pop(),
-                          artist: '???',
-                          album: '???',
-                          track: 0,
-                          src: audioSrc,
-                          cover: placeholderCover
-                        });
-                      }
-                    });
-                  });
-                });
-              }
-
-              function getSongDuration(src) {
-                return new Promise((resolve, reject) => {
-                  const tempAudio = new Audio();
-                  tempAudio.preload = 'metadata';
-                  tempAudio.src = src;
-                  tempAudio.addEventListener('loadedmetadata', () => resolve(tempAudio.duration));
-                  tempAudio.addEventListener('error', (e) => {
-                    console.error(`Error loading duration for ${src}:`, e);
-                    resolve(0);
-                  });
-                });
-              }
-
-              function applySort(criteria) {
-                currentSort = criteria;
-                const currentPlayingSrc = playbackQueue[currentSongIndex]?.src;
-                let sortedList = [...masterSongList];
-                sortedList.sort((a, b) => {
-                  if (criteria === 'alphabetical') {
-                    return a.title.localeCompare(b.title, undefined, {
-                      sensitivity: 'base'
-                    });
-                  }
-                  if (criteria === 'duration') {
-                    return a.duration - b.duration;
-                  }
-                  if (criteria === 'albumTrack') {
-                    if (a.album === "UNDERTALE Soundtrack" && b.album !== "UNDERTALE Soundtrack") return -1;
-                    if (b.album === "UNDERTALE Soundtrack" && a.album !== "UNDERTALE Soundtrack") return 1;
-                    const albumCompare = a.album.localeCompare(b.album, undefined, {
-                      sensitivity: 'base'
-                    });
-                    if (albumCompare !== 0) return albumCompare;
-                    return a.track - b.track;
-                  }
-                  return 0;
-                });
-                songs = sortedList;
-                if (!isShuffling) {
-                  playbackQueue = [...sortedList];
-                  const newIndex = playbackQueue.findIndex(song => song.src === currentPlayingSrc);
-                  currentSongIndex = newIndex !== -1 ? newIndex : 0;
                 }
-                document.querySelectorAll('#sort-controls button').forEach(btn => btn.classList.remove('active'));
-                let buttonId = '';
-                if (criteria === 'albumTrack') buttonId = 'sort-album-track';
-                else if (criteria === 'alphabetical') buttonId = 'sort-alpha';
-                else if (criteria === 'duration') buttonId = 'sort-duration';
-                else if (criteria === 'queue') buttonId = 'sort-queue';
-                const sortButton = document.getElementById(buttonId);
-                if (sortButton) sortButton.classList.add('active');
-                loadSongList();
-              }
+            });
+        }
 
-              function toggleShuffle() {
-                isShuffling = !isShuffling;
-                const queueButton = document.getElementById('sort-queue');
-                if (isShuffling) {
-                  isFirstQueue = true;
-                  previousQueue = [];
-                  nextQueue = [];
-                  const currentlyPlayingSong = playbackQueue[currentSongIndex];
-                  let tempQueue = [...masterSongList];
-                  for (let i = tempQueue.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [tempQueue[i], tempQueue[j]] = [tempQueue[j], tempQueue[i]];
-                  }
-                  playbackQueue = tempQueue;
-                  if (currentlyPlayingSong) {
-                    const idx = playbackQueue.findIndex(s => s.src === currentlyPlayingSong.src);
-                    if (idx > -1) {
-                      const [songToMove] = playbackQueue.splice(idx, 1);
-                      playbackQueue.unshift(songToMove);
-                    }
-                  }
-                  currentSongIndex = 0;
-                  songs = [...playbackQueue];
-                  queueButton.style.display = 'inline-block';
-                  document.querySelectorAll('#sort-controls button').forEach(btn => btn.classList.remove('active'));
-                  queueButton.classList.add('active');
-                } else {
-                  const currentlyPlayingSong = playbackQueue[currentSongIndex];
-                  queueButton.style.display = 'none';
-                  applySort(currentSort);
-                  const newIndex = songs.findIndex(song => song.src === currentlyPlayingSong.src);
-                  currentSongIndex = newIndex !== -1 ? newIndex : 0;
-                }
-                loadSongList();
-                updateShuffleButtons();
-              }
+      function filterAlbumName(albumTitle, context) {
+        return albumTitle;
+      }
 
-              function cycleLoopMode() {
-                if (loopMode === 'none') {
-                  loopMode = 'one';
-                  audio.loop = true;
-                } else if (loopMode === 'one') {
-                  loopMode = 'all';
-                  audio.loop = false;
-                } else {
-                  loopMode = 'none';
-                  audio.loop = false;
-                }
-                updateLoopButtons();
-              }
-
-              function updateShuffleButtons() {
-                const shuffleButtons = [shuffleBtnImg, miniShuffleBtnImg];
-                shuffleButtons.forEach(btn => {
-                  btn.src = isShuffling ? buttonImages.shuffle_on : buttonImages.shuffle_off;
-                  isShuffling ? btn.classList.add('active') : btn.classList.remove('active');
-                });
-              }
-
-              function updateLoopButtons() {
-                const loopButtons = [loopBtnImg, miniLoopBtnImg];
-                loopButtons.forEach(btn => {
-                  btn.classList.remove('active');
-                  if (loopMode === 'one') {
-                    btn.src = buttonImages.loop_one;
-                    btn.classList.add('active');
-                  } else if (loopMode === 'all') {
-                    btn.src = buttonImages.loop_all;
-                    btn.classList.add('active');
-                  } else {
-                    btn.src = buttonImages.loop_none;
-                  }
-                });
-              }
-
-              function onSongEnd() {
-                nextSong();
-              }
-
-              function displayError(message) {
-                songList.innerHTML = `<p style="color: var(--text-secondary); padding: 10px;">${message}</p>`;
-                playerTitle.textContent = "Error";
-                playerArtist.textContent = "Could not load playlist.";
-              }
-
-              function initializePlayer() {
-                if (masterSongList.length > 0) {
-                  playbackQueue = [...songs];
-                  loadSongList();
-                  loadSong(songs[currentSongIndex]);
-                } else {
-                  displayError("No valid songs found in playlist.");
-                }
-              }
-
-              function loadSongList() {
-                songList.innerHTML = '';
-                songs.forEach((song, index) => {
-                  const songItem = document.createElement('div');
-                  songItem.classList.add('song-item');
-                  songItem.innerHTML = `<div class="song-item-left">
-                      <img src="${song.cover}" alt="${song.title} cover" class="song-item-cover">
-                      <div class="song-item-details">
-                        <div class="title">${song.title}</div>
-                        <div class="artist">${formatArtists(song.artist)}</div>
-                      </div>
-                    </div>
-                    <div class="song-item-album">
-                      ${filterAlbumName(song.album, 'list')}
-                      <div class="song-duration">${formatTime(song.duration)}</div>
-                    </div>`;
-                  songItem.addEventListener('click', () => {
-                    const clickedSong = songs[index];
-                    if (isShuffling) {
-                      let tempQueue = masterSongList.filter(s => s.src !== clickedSong.src);
-                      for (let i = tempQueue.length - 1; i > 0; i--) {
-                        const j = Math.floor(Math.random() * (i + 1));
-                        [tempQueue[i], tempQueue[j]] = [tempQueue[j], tempQueue[i]];
-                      }
-                      playbackQueue = [clickedSong, ...tempQueue];
-                      currentSongIndex = 0;
-                    } else {
-                      currentSongIndex = playbackQueue.findIndex(s => s.src === clickedSong.src);
-                    }
-                    loadSong(playbackQueue[currentSongIndex]);
-                    playSong();
-                    updateMinibar();
-                    updatePlayingClass();
-                  });
-                  songList.appendChild(songItem);
-                });
-                updatePlayingClass();
-              }
-
-              function loadSong(song) {
-                if (!song) {
-                  console.error("loadSong called with undefined song.");
-                  return;
-                }
-                audio.src = song.src;
-                playerAlbumCover.src = song.cover;
-                playerTitle.textContent = song.title;
-                playerArtist.textContent = formatArtists(song.artist);
-                playerAlbum.innerHTML = filterAlbumName(song.album, 'player');
-                miniPlayerCover.src = song.cover;
-                miniPlayerTitle.textContent = song.title;
-                miniPlayerArtist.textContent = formatArtists(song.artist);
-                if ('mediaSession' in navigator) {
-                  navigator.mediaSession.metadata = new MediaMetadata({
-                    title: song.title,
-                    artist: formatArtists(song.artist),
-                    album: `UNDERTALE ${filterAlbumName(song.album, 'list')}`,
-                    artwork: [{
-                      src: song.cover,
-                      sizes: '300x300',
-                      type: 'image/png'
-                    }, ]
-                  });
-                }
-              }
-
-              function setButtonImages() {
-                prevBtnImg.src = buttonImages.prev;
-                miniPrevBtnImg.src = buttonImages.prev;
-                nextBtnImg.src = buttonImages.next;
-                miniNextBtnImg.src = buttonImages.next;
-                playPauseBtnImg.src = isPlaying ? buttonImages.pause : buttonImages.play;
-                miniPlayPauseBtnImg.src = isPlaying ? buttonImages.pause : buttonImages.play;
-                updateShuffleButtons();
-                updateLoopButtons();
-              }
-
-              function resumeSong() {
-                if (playbackQueue.length === 0) return;
-                const song = playbackQueue[currentSongIndex];
-                if (!song) return;
-                audio.play().catch(e => console.error("Play error:", e));
-                isPlaying = true;
-                document.title = `${song.title}／${formatArtists(song.artist)}`;
-                playPauseBtnImg.src = buttonImages.pause;
-                miniPlayPauseBtnImg.src = buttonImages.pause;
-                albumGifOverlay.src = animatedGifSrc;
-                backgroundGif.style.opacity = "0.5";
-                updatePlayingClass();
-                updateMinibar();
-              }
-
-              function playSong() {
-                if (!hasPlayedThisSession) {
-                  switchToPlayerView();
-                }
-                hasPlayedThisSession = true;
-                if (playbackQueue.length === 0) return;
-                const song = playbackQueue[currentSongIndex];
-                albumGifOverlay.src = animatedGifSrc;
-                isPlaying = true;
-                document.title = `${song.title}／${formatArtists(song.artist)}`;
-                loadSong(song);
-                audio.play().catch(e => console.error("Play error:", e));
-                playPauseBtnImg.src = buttonImages.pause;
-                miniPlayPauseBtnImg.src = buttonImages.pause;
-                backgroundGif.style.opacity = '0.5';
-                updatePlayingClass();
-              }
-
-              function pauseSong() {
-                albumGifOverlay.src = pausedGifSrc;
-                isPlaying = false;
-                document.title = "UNDERTALEWeb OST Player!";
-                audio.pause();
-                playPauseBtnImg.src = buttonImages.play;
-                miniPlayPauseBtnImg.src = buttonImages.play;
-                backgroundGif.style.opacity = '0';
-                updatePlayingClass();
-              }
-
-              function prevSong() {
-                if (playbackQueue.length === 0) return;
-                if (audio.currentTime > 2) {
-                  audio.currentTime = 0;
-                  return;
-                }
-                if (isShuffling && currentSongIndex === 0) {
-                  if (isFirstQueue) {
-                    audio.currentTime = 0;
-                    return;
-                  } else {
-                    nextQueue = [...playbackQueue];
-                    playbackQueue = [...previousQueue];
-                    previousQueue = [];
-                    isFirstQueue = true;
-                    currentSongIndex = playbackQueue.length - 1;
-                    if (document.getElementById('sort-queue').classList.contains('active')) {
-                      songs = [...playbackQueue];
-                      loadSongList();
-                    }
-                  }
-                } else {
-                  currentSongIndex = (currentSongIndex - 1 + playbackQueue.length) % playbackQueue.length;
-                }
-                loadSong(playbackQueue[currentSongIndex]);
-                playSong();
-              }
-
-              function nextSong() {
-                updateMinibar();
-                if (playbackQueue.length === 0) return;
-                if (isShuffling && currentSongIndex === playbackQueue.length - 1) {
-                  previousQueue = [...playbackQueue];
-                  isFirstQueue = false;
-                  if (nextQueue.length > 0) {
-                    playbackQueue = [...nextQueue];
-                    nextQueue = [];
-                  } else {
-                    let tempQueue = [...masterSongList];
-                    for (let i = tempQueue.length - 1; i > 0; i--) {
-                      const j = Math.floor(Math.random() * (i + 1));
-                      [tempQueue[i], tempQueue[j]] = [tempQueue[j], tempQueue[i]];
-                    }
-                    playbackQueue = tempQueue;
-                  }
-                  currentSongIndex = 0;
-                  if (document.getElementById('sort-queue').classList.contains('active')) {
-                    songs = [...playbackQueue];
-                    loadSongList();
-                  }
-                } else if (loopMode !== 'all' && !isShuffling && currentSongIndex === playbackQueue.length - 1) {
-                  pauseSong();
-                  return;
-                } else {
-                  currentSongIndex = (currentSongIndex + 1) % playbackQueue.length;
-                }
-                loadSong(playbackQueue[currentSongIndex]);
-                playSong();
-              }
-
-              function updateProgress(e) {
+      function getSongMetadata(metadataUrl, audioSrc) {
+        return fetch(audioSrc).then(res => res.blob()).then(blob => {
+          return new Promise((resolve) => {
+            window.jsmediatags.read(blob, {
+              onSuccess: (tag) => {
                 const {
-                  duration,
-                  currentTime
-                } = e.srcElement;
-                if (duration) {
-                  const progressPercent = (currentTime / duration) * 100;
-                  progressBar.style.width = `${progressPercent}%`;
-                  miniProgressBar.style.width = `${progressPercent}%`;
-                  const formattedCurrentTime = formatTime(currentTime);
-                  const formattedDuration = formatTime(duration);
-                  currentTimeEl.textContent = formattedCurrentTime;
-                  durationEl.textContent = formattedDuration;
-                  miniHoverTime.textContent = formattedCurrentTime;
-                  miniHoverDuration.textContent = formattedDuration;
+                  title,
+                  artist,
+                  album,
+                  track,
+                  picture
+                } = tag.tags;
+                let cover = placeholderCover;
+                if (picture) {
+                  const uint8 = new Uint8Array(picture.data);
+                  let binary = "";
+                  uint8.forEach(byte => binary += String.fromCharCode(byte));
+                  const base64String = btoa(binary);
+                  cover = `data:${picture.format};base64,${base64String}`;
                 }
-              }
-
-              function setMiniProgress(e) {
-                const width = this.clientWidth;
-                const clickX = e.offsetX;
-                const duration = audio.duration;
-                if (duration) {
-                  audio.currentTime = (clickX / width) * duration;
-                }
-              }
-
-              function setProgress(e) {
-                const width = this.clientWidth;
-                const clickX = e.offsetX;
-                const duration = audio.duration;
-                if (duration) {
-                  audio.currentTime = (clickX / width) * duration;
-                }
-              }
-
-              function formatTime(seconds) {
-                if (isNaN(seconds)) return '0:00';
-                const minutes = Math.floor(seconds / 60);
-                const secs = Math.floor(seconds % 60);
-                return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
-              }
-
-              function switchToPlayerView() {
-                songListView.classList.remove('active');
-                playerView.classList.add('active');
-                miniPlayer.classList.remove('visible');
-                songListView.classList.remove('has-mini-player');
-                hasSeenPlayer = true;
-              }
-
-              function switchToListView() {
-                playerView.classList.remove('active');
-                songListView.classList.add('active');
-                if (audio.src && !audio.paused) {
-                  miniPlayer.classList.add('visible');
-                  songListView.classList.add('has-mini-player');
-                } else {
-                  miniPlayer.classList.remove('visible');
-                  songListView.classList.remove('has-mini-player');
-                }
-              }
-              [playPauseBtnImg, miniPlayPauseBtnImg].forEach(btn => {
-                btn.addEventListener('click', () => {
-                  if (!audio.src || songs.length === 0) return;
-                  isPlaying ? pauseSong() : resumeSong();
+                resolve({
+                  title: title || metadataUrl.split('/').pop(),
+                  artist: artist || '???',
+                  album: album || '???',
+                  track: parseInt(track) || 0,
+                  src: audioSrc,
+                  cover
                 });
-              });
-              [prevBtnImg, miniPrevBtnImg].forEach(btn => btn.addEventListener('click', prevSong));
-              [nextBtnImg, miniNextBtnImg].forEach(btn => btn.addEventListener('click', nextSong));
-              audio.addEventListener('timeupdate', updateProgress);
-              audio.addEventListener('ended', onSongEnd);
-              progressContainer.addEventListener('click', setProgress);
-              miniProgressContainer.addEventListener('click', setMiniProgress);
-              backToListBtn.addEventListener('click', switchToListView);
-              miniPlayerLeft.addEventListener('click', switchToPlayerView);
-              [shuffleBtnImg, miniShuffleBtnImg].forEach(btn => btn.addEventListener('click', toggleShuffle));
-              [loopBtnImg, miniLoopBtnImg].forEach(btn => btn.addEventListener('click', cycleLoopMode));
-              document.getElementById('sort-album-track').addEventListener('click', () => applySort('albumTrack'));
-              document.getElementById('sort-alpha').addEventListener('click', () => applySort('alphabetical'));
-              document.getElementById('sort-duration').addEventListener('click', () => applySort('duration'));
-              document.getElementById('sort-queue').addEventListener('click', () => {
-                songs = [...playbackQueue];
-                document.querySelectorAll('#sort-controls button').forEach(btn => btn.classList.remove('active'));
-                document.getElementById('sort-queue').classList.add('active');
-                loadSongList();
-              });
-              document.addEventListener('DOMContentLoaded', () => {
-                setButtonImages();
-                loadPlaylist();
-                if ('mediaSession' in navigator) {
-                  navigator.mediaSession.setActionHandler('play', () => resumeSong());
-                  navigator.mediaSession.setActionHandler('pause', () => pauseSong());
-                  navigator.mediaSession.setActionHandler('previoustrack', () => prevSong());
-                  navigator.mediaSession.setActionHandler('nexttrack', () => nextSong());
-                }
-              });
-        </script>
+              },
+              onError: () => {
+                resolve({
+                  title: metadataUrl.split('/').pop(),
+                  artist: '???',
+                  album: '???',
+                  track: 0,
+                  src: audioSrc,
+                  cover: placeholderCover
+                });
+              }
+            });
+          });
+        });
+      }
+
+      function getSongDuration(src) {
+        return new Promise(resolve => {
+          const tempAudio = new Audio();
+          tempAudio.preload = 'metadata';
+          tempAudio.src = src;
+          tempAudio.addEventListener('loadedmetadata', () => resolve(tempAudio.duration));
+          tempAudio.addEventListener('error', () => resolve(0));
+        });
+      }
+
+      function applySort(criteria) {
+        currentSort = criteria;
+        const currentPlayingSrc = playbackQueue[currentSongIndex]?.src;
+        let sortedList = [...masterSongList];
+        sortedList.sort((a, b) => {
+          if (criteria === 'alphabetical') {
+            return a.title.localeCompare(b.title, undefined, {
+              sensitivity: 'base'
+            });
+          }
+          if (criteria === 'duration') {
+            return a.duration - b.duration;
+          }
+          if (criteria === 'albumTrack') {
+            if (a.album === "UNDERTALE Soundtrack" && b.album !== "UNDERTALE Soundtrack") return -1;
+            if (b.album === "UNDERTALE Soundtrack" && a.album !== "UNDERTALE Soundtrack") return 1;
+            const albumCompare = a.album.localeCompare(b.album, undefined, {
+              sensitivity: 'base'
+            });
+            if (albumCompare !== 0) return albumCompare;
+            return a.track - b.track;
+          }
+          return 0;
+        });
+        songs = sortedList;
+        if (!isShuffling) {
+          playbackQueue = [...songs];
+          const newIndex = playbackQueue.findIndex(song => song.src === currentPlayingSrc);
+          currentSongIndex = newIndex !== -1 ? newIndex : 0;
+        }
+        document.querySelectorAll('#sort-controls button').forEach(btn => btn.classList.remove('active'));
+        let buttonId = '';
+        if (criteria === 'albumTrack') buttonId = 'sort-album-track';
+        else if (criteria === 'alphabetical') buttonId = 'sort-alpha';
+        else if (criteria === 'duration') buttonId = 'sort-duration';
+        else if (criteria === 'queue') buttonId = 'sort-queue';
+        const sortButton = document.getElementById(buttonId);
+        if (sortButton) sortButton.classList.add('active');
+        loadSongList();
+      }
+
+      function shufflePlaylist() {
+        let tempSongs = [...songs];
+        for (let i = tempSongs.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [tempSongs[i], tempSongs[j]] = [tempSongs[j], tempSongs[i]];
+        }
+        songs = tempSongs;
+      }
+
+      function toggleShuffle() {
+        isShuffling = !isShuffling;
+        const queueButton = document.getElementById('sort-queue');
+        if (isShuffling) {
+          isFirstQueue = true;
+          previousQueue = [];
+          nextQueue = [];
+          const currentlyPlayingSong = playbackQueue[currentSongIndex];
+          let tempQueue = [...masterSongList];
+          for (let i = tempQueue.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [tempQueue[i], tempQueue[j]] = [tempQueue[j], tempQueue[i]];
+          }
+          playbackQueue = tempQueue;
+          if (currentlyPlayingSong) {
+            const idx = playbackQueue.findIndex(s => s.src === currentlyPlayingSong.src);
+            if (idx > -1) {
+              const [songToMove] = playbackQueue.splice(idx, 1);
+              playbackQueue.unshift(songToMove);
+            }
+          }
+          currentSongIndex = 0;
+          songs = [...playbackQueue];
+          queueButton.style.display = 'inline-block';
+          document.querySelectorAll('#sort-controls button').forEach(btn => btn.classList.remove('active'));
+          queueButton.classList.add('active');
+        } else {
+          const currentlyPlayingSong = playbackQueue[currentSongIndex];
+          queueButton.style.display = 'none';
+          applySort(currentSort);
+          const newIndex = songs.findIndex(song => song.src === currentlyPlayingSong.src);
+          currentSongIndex = newIndex !== -1 ? newIndex : 0;
+        }
+        loadSongList();
+        updateShuffleButtons();
+      }
+
+      function cycleLoopMode() {
+        if (loopMode === 'none') {
+          loopMode = 'one';
+          audio.loop = true;
+        } else if (loopMode === 'one') {
+          loopMode = 'all';
+          audio.loop = false;
+        } else {
+          loopMode = 'none';
+          audio.loop = false;
+        }
+        updateLoopButtons();
+      }
+
+      function updateShuffleButtons() {
+        const shuffleButtons = [shuffleBtnImg, miniShuffleBtnImg];
+        shuffleButtons.forEach(btn => {
+          btn.src = isShuffling ? buttonImages.shuffle_on : buttonImages.shuffle_off;
+          isShuffling ? btn.classList.add('active') : btn.classList.remove('active');
+        });
+      }
+
+      function updateLoopButtons() {
+        const loopButtons = [loopBtnImg, miniLoopBtnImg];
+        loopButtons.forEach(btn => {
+          btn.classList.remove('active');
+          if (loopMode === 'one') {
+            btn.src = buttonImages.loop_one;
+            btn.classList.add('active');
+          } else if (loopMode === 'all') {
+            btn.src = buttonImages.loop_all;
+            btn.classList.add('active');
+          } else {
+            btn.src = buttonImages.loop_none;
+          }
+        });
+      }
+
+      function onSongEnd() {
+        nextSong();
+      }
+
+      function displayError(message) {
+        songList.innerHTML = `
+
+                                                                        
+                                                                        
+                                                                        
+                                                                                <p style="color: var(--text-secondary); padding: 10px;">${message}</p>`;
+        playerTitle.textContent = "Error";
+        playerArtist.textContent = "Could not load playlist.";
+      }
+
+      function initializePlayer() {
+        if (masterSongList.length > 0) {
+          playbackQueue = [...songs];
+          loadSongList();
+          loadSong(songs[currentSongIndex]);
+        } else {
+          displayError("No valid songs found in playlist.");
+        }
+      }
+
+      function loadSongList() {
+        songList.innerHTML = '';
+        songs.forEach((song, index) => {
+          const songItem = document.createElement('div');
+          songItem.classList.add('song-item');
+          songItem.innerHTML = `
+              
+                                                                        
+                                                                                <div class="song-item-left">
+                                                                                    <img src="${song.cover}" alt="${song.title} cover" class="song-item-cover">
+                                                                                        <div class="song-item-details">
+                                                                                            <div class="title">${song.title}</div>
+                                                                                            <div class="artist">${formatArtists(song.artist)}</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="song-item-album">
+                ${filterAlbumName(song.album, 'list')}
+                
+                                                                                
+                                                                                        <div class="song-duration">${formatTime(song.duration)}</div>
+                                                                                    </div>
+          `;
+          songItem.addEventListener('click', () => {
+            const clickedSong = songs[index];
+            if (isShuffling) {
+              let tempQueue = masterSongList.filter(s => s.src !== clickedSong.src);
+              for (let i = tempQueue.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [tempQueue[i], tempQueue[j]] = [tempQueue[j], tempQueue[i]];
+              }
+              playbackQueue = [clickedSong, ...tempQueue];
+              currentSongIndex = 0;
+            } else {
+              currentSongIndex = playbackQueue.findIndex(s => s.src === clickedSong.src);
+            }
+            loadSong(playbackQueue[currentSongIndex]);
+            playSong();
+            updateMinibar();
+            updatePlayingClass();
+          });
+          songList.appendChild(songItem);
+        });
+        updatePlayingClass();
+      }
+
+      function loadSong(song) {
+        audio.src = song.src;
+        playerAlbumCover.src = song.cover;
+        playerTitle.textContent = song.title;
+        playerArtist.textContent = formatArtists(song.artist);
+        playerAlbum.innerHTML = filterAlbumName(song.album, 'player');
+        miniPlayerCover.src = song.cover;
+        miniPlayerTitle.textContent = song.title;
+        miniPlayerArtist.textContent = formatArtists(song.artist);
+        if ('mediaSession' in navigator) {
+          navigator.mediaSession.metadata = new MediaMetadata({
+            title: song.title,
+            artist: formatArtists(song.artist),
+            album: `DELTARUNE ${filterAlbumName(song.album, 'list')}`,
+            artwork: [{
+              src: song.cover,
+              sizes: '300x300',
+              type: 'image/png'
+            }, ]
+          });
+        }
+      }
+
+      function setButtonImages() {
+        prevBtnImg.src = buttonImages.prev;
+        miniPrevBtnImg.src = buttonImages.prev;
+        nextBtnImg.src = buttonImages.next;
+        miniNextBtnImg.src = buttonImages.next;
+        playPauseBtnImg.src = isPlaying ? buttonImages.pause : buttonImages.play;
+        miniPlayPauseBtnImg.src = isPlaying ? buttonImages.pause : buttonImages.play;
+        updateShuffleButtons();
+        updateLoopButtons();
+      }
+
+      function resumeSong() {
+        if (playbackQueue.length === 0) return;
+        const song = playbackQueue[currentSongIndex];
+        if (!song) return;
+        audio.play().catch(e => console.error("Play error:", e));
+        isPlaying = true;
+        document.title = `${song.title}／${formatArtists(song.artist)}`;
+        playPauseBtnImg.src = buttonImages.pause;
+        miniPlayPauseBtnImg.src = buttonImages.pause;
+        albumGifOverlay.src = animatedGifSrc;
+        backgroundGif.style.opacity = "0.5";
+        updatePlayingClass();
+        updateMinibar();
+      }
+
+      function playSong() {
+          if (!hasPlayedThisSession) {
+              switchToPlayerView();
+            }
+        hasPlayedThisSession = true;
+        if (playbackQueue.length === 0) return;
+        const song = playbackQueue[currentSongIndex];
+        albumGifOverlay.src = animatedGifSrc;
+        isPlaying = true;
+        document.title = `${song.title}／${formatArtists(song.artist)}`;
+        loadSong(song);
+        audio.play().catch(e => console.error("Play error:", e));
+        playPauseBtnImg.src = buttonImages.pause;
+        miniPlayPauseBtnImg.src = buttonImages.pause;
+        backgroundGif.style.opacity = '0.5';
+        updatePlayingClass();
+      }
+
+      function pauseSong() {
+        albumGifOverlay.src = pausedGifSrc;
+        isPlaying = false;
+        document.title = "UNDERTALEWeb OST Player!";
+        audio.pause();
+        playPauseBtnImg.src = buttonImages.play;
+        miniPlayPauseBtnImg.src = buttonImages.play;
+        backgroundGif.style.opacity = '0';
+        updatePlayingClass();
+      }
+
+      function prevSong() {
+        if (playbackQueue.length === 0) return;
+        if (audio.currentTime > 2) {
+          audio.currentTime = 0;
+          return;
+        }
+        if (isShuffling && currentSongIndex === 0) {
+          if (isFirstQueue) {
+            audio.currentTime = 0;
+            return;
+          } else {
+            nextQueue = [...playbackQueue];
+            playbackQueue = [...previousQueue];
+            previousQueue = [];
+            isFirstQueue = true;
+            currentSongIndex = playbackQueue.length - 1;
+            if (document.getElementById('sort-queue').classList.contains('active')) {
+              songs = [...playbackQueue];
+              loadSongList();
+            }
+          }
+        } else {
+          currentSongIndex = (currentSongIndex - 1 + playbackQueue.length) % playbackQueue.length;
+        }
+        loadSong(playbackQueue[currentSongIndex]);
+        playSong();
+      }
+
+      function nextSong() {
+        updateMinibar();
+        if (playbackQueue.length === 0) return;
+        if (isShuffling && currentSongIndex === playbackQueue.length - 1) {
+          previousQueue = [...playbackQueue];
+          isFirstQueue = false;
+          if (nextQueue.length > 0) {
+            playbackQueue = [...nextQueue];
+            nextQueue = [];
+          } else {
+            let tempQueue = [...masterSongList];
+            for (let i = tempQueue.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1));
+              [tempQueue[i], tempQueue[j]] = [tempQueue[j], tempQueue[i]];
+            }
+            playbackQueue = tempQueue;
+          }
+          currentSongIndex = 0;
+          if (document.getElementById('sort-queue').classList.contains('active')) {
+            songs = [...playbackQueue];
+            loadSongList();
+          }
+        } else if (loopMode !== 'all' && !isShuffling && currentSongIndex === playbackQueue.length - 1) {
+          pauseSong();
+          return;
+        } else {
+          currentSongIndex = (currentSongIndex + 1) % playbackQueue.length;
+        }
+        loadSong(playbackQueue[currentSongIndex]);
+        playSong();
+      }
+
+      function updateProgress(e) {
+        const {
+          duration,
+          currentTime
+        } = e.srcElement;
+        if (duration) {
+          const progressPercent = (currentTime / duration) * 100;
+          progressBar.style.width = `${progressPercent}%`;
+          miniProgressBar.style.width = `${progressPercent}%`;
+          const formattedCurrentTime = formatTime(currentTime);
+          const formattedDuration = formatTime(duration);
+          currentTimeEl.textContent = formattedCurrentTime;
+          durationEl.textContent = formattedDuration;
+          miniHoverTime.textContent = formattedCurrentTime;
+          miniHoverDuration.textContent = formattedDuration;
+        }
+      }
+
+      function setMiniProgress(e) {
+        const width = this.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audio.duration;
+        if (duration) {
+          audio.currentTime = (clickX / width) * duration;
+        }
+      }
+
+      function setProgress(e) {
+        const width = this.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audio.duration;
+        if (duration) {
+          audio.currentTime = (clickX / width) * duration;
+        }
+      }
+
+      function formatTime(seconds) {
+        if (isNaN(seconds)) return '0:00';
+        const minutes = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+      }
+
+      function switchToPlayerView() {
+        songListView.classList.remove('active');
+        playerView.classList.add('active');
+        miniPlayer.classList.remove('visible');
+        songListView.classList.remove('has-mini-player');
+        hasSeenPlayer = true;
+      }
+
+      function switchToListView() {
+        playerView.classList.remove('active');
+        songListView.classList.add('active');
+        if (audio.src && !audio.paused) {
+          miniPlayer.classList.add('visible');
+          songListView.classList.add('has-mini-player');
+        } else {
+          miniPlayer.classList.remove('visible');
+          songListView.classList.remove('has-mini-player');
+        }
+      }
+      [playPauseBtnImg, miniPlayPauseBtnImg].forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (!audio.src || songs.length === 0) return;
+          isPlaying ? pauseSong() : resumeSong();
+        });
+      });
+      [prevBtnImg, miniPrevBtnImg].forEach(btn => btn.addEventListener('click', prevSong));
+      [nextBtnImg, miniNextBtnImg].forEach(btn => btn.addEventListener('click', nextSong));
+      audio.addEventListener('timeupdate', updateProgress);
+      audio.addEventListener('ended', onSongEnd);
+      progressContainer.addEventListener('click', setProgress);
+      miniProgressContainer.addEventListener('click', setMiniProgress);
+      backToListBtn.addEventListener('click', switchToListView);
+      miniPlayerLeft.addEventListener('click', switchToPlayerView);
+      [shuffleBtnImg, miniShuffleBtnImg].forEach(btn => btn.addEventListener('click', toggleShuffle));
+      [loopBtnImg, miniLoopBtnImg].forEach(btn => btn.addEventListener('click', cycleLoopMode));
+      document.getElementById('sort-album-track').addEventListener('click', () => applySort('albumTrack'));
+      document.getElementById('sort-alpha').addEventListener('click', () => applySort('alphabetical'));
+      document.getElementById('sort-duration').addEventListener('click', () => applySort('duration'));
+      document.getElementById('sort-queue').addEventListener('click', () => {
+        songs = [...playbackQueue];
+        document.querySelectorAll('#sort-controls button').forEach(btn => btn.classList.remove('active'));
+        document.getElementById('sort-queue').classList.add('active');
+        loadSongList();
+      });
+      document.addEventListener('DOMContentLoaded', () => {
+        setButtonImages();
+        loadPlaylist();
+        if ('mediaSession' in navigator) {
+          navigator.mediaSession.setActionHandler('play', () => resumeSong());
+          navigator.mediaSession.setActionHandler('pause', () => pauseSong());
+          navigator.mediaSession.setActionHandler('previoustrack', () => prevSong());
+          navigator.mediaSession.setActionHandler('nexttrack', () => nextSong());
+        }
+      });
+    </script>
   </body>
 </html>
 <!-- UNDERTALEWeb v14.0 -->
