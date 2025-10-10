@@ -2,10 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas12@main/utweb/music/">
+    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas13@main/utweb/music/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UNDERTALEWeb OST Player!</title>
-    <link rel="icon" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas12@main/utweb/fav.ico" />
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas13@main/utweb/fav.ico" />
     <script src="jsmediatags.min.js"></script>
     <style>
       :root {
@@ -18,7 +18,7 @@
 
       @font-face {
         font-family: "Determination";
-        src: url("https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas12@main/utweb/fonts/8bitOperatorPlus-Bold.ttf") format("truetype");
+        src: url("https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas13@main/utweb/fonts/8bitOperatorPlus-Bold.ttf") format("truetype");
         font-weight: normal;
         font-style: normal;
       }
@@ -818,9 +818,7 @@
       }
         async function loadPlaylist() {
                 try {
-                  // Use the hardcoded songslol array as the source
                   const filenames = songslol;
-                  
                   if (filenames.length === 0) {
                     displayError("Playlist is empty.");
                     return;
@@ -828,29 +826,40 @@
 
                   songList.innerHTML = `<p style="color: var(--text-secondary);">Loading songs... <br> (0/${filenames.length} loaded)</p>`;
                   
-                  const songPromises = filenames.map(async (filename, index) => {
+                  // Process songs one-by-one to avoid overwhelming the browser
+                  const loadedSongs = [];
+                  for (let i = 0; i < filenames.length; i++) {
+                    const filename = filenames[i];
                     const trimmedFilename = filename.trim();
-                    // The paths in songslol are already correct, so we use them directly
                     const audioSrc = trimmedFilename;
-                    
-                    const [metadata, duration] = await Promise.all([
-                      getSongMetadata(audioSrc, audioSrc), // Pass the correct path
-                      getSongDuration(audioSrc)
-                    ]);
-                    
-                    metadata.duration = duration;
-                    songList.innerHTML = `<p style="color: var(--text-secondary);">Loading songs... <br> (${index + 1}/${filenames.length} loaded)</p>`;
-                    return metadata;
-                  });
 
-                  masterSongList = await Promise.all(songPromises);
-                  songs = [...masterSongList]; // Initialize the global 'songs' array
+                    try {
+                      const [metadata, duration] = await Promise.all([
+                        getSongMetadata(audioSrc, audioSrc),
+                        getSongDuration(audioSrc)
+                      ]);
+                      
+                      metadata.duration = duration;
+                      loadedSongs.push(metadata);
+
+                      // Update progress on the UI after each song
+                      songList.innerHTML = `<p style="color: var(--text-secondary);">Loading songs... <br> (${i + 1}/${filenames.length} loaded)</p>`;
+                    
+                    } catch (songError) {
+                      console.error(`Failed to load song: ${filename}`, songError);
+                      // This will skip any individual songs that fail to load
+                      // without crashing the whole application.
+                    }
+                  }
+
+                  masterSongList = loadedSongs;
+                  songs = [...masterSongList];
                   applySort(currentSort);
                   initializePlayer();
 
                 } catch (error) {
-                  console.error("Error loading playlist:", error);
-                  displayError("Could not process the song list.");
+                  console.error("Error in loadPlaylist function:", error);
+                  displayError("A critical error occurred while loading the playlist.");
                 }
               }
 
