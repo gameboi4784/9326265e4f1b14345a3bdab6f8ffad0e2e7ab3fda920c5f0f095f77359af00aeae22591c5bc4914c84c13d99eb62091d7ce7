@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UNDERTALEWeb OST Player!</title>
-    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas27@main/">
-    <link rel="icon" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas27@main/utweb/fav.ico" />
+    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas28@main/">
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas28@main/utweb/fav.ico" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
     <style>
       :root {
@@ -18,7 +18,7 @@
 
       @font-face {
         font-family: "Determination";
-        src: url("https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas27@main/fonts/8bitOperatorPlus-Bold.ttf") format("truetype");
+        src: url("https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas28@main/fonts/8bitOperatorPlus-Bold.ttf") format("truetype");
         font-weight: normal;
         font-style: normal;
       }
@@ -61,7 +61,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url('https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas27@main/utweb/music/bg.gif');
+        background-image: url('https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas28@main/utweb/music/bg.gif');
         background-size: cover;
         background-position: center;
         opacity: 0;
@@ -568,7 +568,7 @@
           <button id="back-to-list-btn" title="Back to list">&#10094;</button>
           <div id="player-content-wrapper">
             <div id="album-art-container">
-              <img src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas27@main/utweb/music/flowey.png" id="album-gif-overlay">
+              <img src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas28@main/utweb/music/flowey.png" id="album-gif-overlay">
               <img src="https://placehold.co/300x300/000000/FFFFFF?text=Album+Art" alt="Album Cover" id="player-album-cover">
             </div>
             <div id="player-info">
@@ -623,18 +623,18 @@
     <script>
       let hasPlayedThisSession = false;
       const buttonImages = {
-        play: 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas27@main/utweb/music/play.png',
-        pause: 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas27@main/utweb/music/pause.png',
-        next: 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas27@main/utweb/music/next.png',
-        prev: 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas27@main/utweb/music/prev.png',
-        shuffle_on: 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas27@main/utweb/music/onshuffle.png',
-        shuffle_off: 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas27@main/utweb/music/shuffle.png',
-        loop_none: 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas27@main/utweb/music/loop.png',
-        loop_one: 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas27@main/utweb/music/oneloop.png',
-        loop_all: 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas27@main/utweb/music/onloop.png'
+        play: 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas28@main/utweb/music/play.png',
+        pause: 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas28@main/utweb/music/pause.png',
+        next: 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas28@main/utweb/music/next.png',
+        prev: 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas28@main/utweb/music/prev.png',
+        shuffle_on: 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas28@main/utweb/music/onshuffle.png',
+        shuffle_off: 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas28@main/utweb/music/shuffle.png',
+        loop_none: 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas28@main/utweb/music/loop.png',
+        loop_one: 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas28@main/utweb/music/oneloop.png',
+        loop_all: 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas28@main/utweb/music/onloop.png'
       };
-        const animatedGifSrc = 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas27@main/utweb/music/flowey.gif';
-        const pausedGifSrc = 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas27@main/utweb/music/flowey.png';
+        const animatedGifSrc = 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas28@main/utweb/music/flowey.gif';
+        const pausedGifSrc = 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas28@main/utweb/music/flowey.png';
       let masterSongList = [];
       let songs = [];
       let currentSongIndex = 0;
@@ -700,7 +700,7 @@
       }
       async function loadPlaylist() {
         try {
-          const response = await fetch('https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas27@main/utweb/music/mus/list.txt');
+          const response = await fetch('https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas28@main/utweb/music/mus/list.txt');
           if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
           const text = await response.text();
           const filenames = text.split('\n').filter(line => line.trim() !== '');
