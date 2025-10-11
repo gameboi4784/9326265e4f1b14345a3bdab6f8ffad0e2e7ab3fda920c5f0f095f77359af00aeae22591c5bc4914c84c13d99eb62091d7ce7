@@ -1,25 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VW8CMPRWYS"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', 'G-VW8CMPRWYS');
-    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>.shortpie.'s DELTARUNE web port!</title>
-
-    <link rel="manifest" href="/manifest.json" />
+    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/">
     <meta name="theme-color" content="#000000" />
-
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="fav.ico" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/drweb/style.css" />
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/drweb/fav.ico" />
   </head>
   <body>
     <div class="container">
@@ -27,58 +15,42 @@
       <h1 class="shortpie">&nbsp;.shortpie.'s</h1>
       <br>
       <br>
-      <img style="width: 85%;" src="deltarune_logo.png" alt="DELTARUNE" class="logo" />
+      <img style="width: 85%;" src="drweb/deltarune_logo.png" alt="DELTARUNE" class="logo" />
       <h1 style="display: block; margin:0;">web port!</h1>
-      <img id="dog" class="toby" src="toby/10thdog.png" alt="toby">
-      <img class="toby10th" src="toby/10thanniv.png" alt="toby">
+      <img id="dog" class="toby" src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/utweb/toby/10thdog.png" alt="toby">
+      <img class="toby10th" src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/utweb/toby/10thanniv.png" alt="toby">
       <audio id="audio-player" preload="auto"></audio>
-      <script>
-        if (history.scrollRestoration) {
-          history.scrollRestoration = 'manual';
-        }
-      </script>
       <script>
         const dogElement = document.getElementById('dog');
         const audioPlayer = document.getElementById('audio-player');
         dogElement.addEventListener('mouseenter', () => {
-          dogElement.src = 'toby/10thdogmouth.png';
+          dogElement.src = 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/utweb/toby/10thdogmouth.png';
         });
         dogElement.addEventListener('mouseleave', () => {
-          dogElement.src = 'toby/10thdog.png';
+          dogElement.src = 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/utweb/toby/10thdog.png';
         });
         dogElement.addEventListener('click', () => {
-          audioPlayer.src = 'toby/6.mp3';
+          audioPlayer.src = 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/utweb/toby/6.mp3';
           audioPlayer.play();
         });
       </script>
       <div class="button-group">
           <div id="chapterButtons" class="chapter-buttons">
-            <button id="BOSSRUSHButton" class="chapter-button-3" onclick="location.href='/bossrush/'">
+            <button id="bossrush" class="chapter-button-3">
               <span class="button-label">BOSS RUSH!</span>
             </button>
-            <button class="chapter-button-1" onclick="location.href='play/'">
+            <button id="play" class="chapter-button-1">
               <span class="button-label">START</span>
             </button>
-            <button id="ostPlayerButton" class="chapter-button-2" onclick="location.href='music/'">
+            <button id="ostPlayerButton" class="chapter-button-2">
               <span class="button-label">OST PLAYER</span>
             </button>
           </div>
         <div id="chapterButtons" class="othersite-button">
-          <button class="chapter-button-4" onclick="location.href='/utweb/'">
+          <button id="utweb" class="chapter-button-4">
             <span class="button-label">UNDERTALEWeb</span>
           </button>
         </div>
-      </div>
-      <div class="toggle-container">
-        <label for="offlineToggle">Offline Mode?</label>
-        <label class="toggle-switch">
-          <input type="checkbox" id="offlineToggle">
-          <span class="slider"></span>
-        </label>
-      </div>
-      <div id="cacheStatus">
-        <img src="spinner.gif" id="cacheSpinnerGif" alt="Downloading...">
-        <span id="cacheText"></span>
       </div>
       <div class="notes">
         <h2 class="notes-title">— UPDATE NOTES —</h2>
@@ -92,7 +64,7 @@
           <li class="update">A brand-new mod loader is now available at <a href="https://deltarune.win" style="color: #007bff;">the main DRWeb homepage</a>!</li>
         </ul>
         <p style="color: #000;">
-          <a href="old/" style="color: #007BFF;">Click here</a> to view older releases of DELTARUNEWeb!
+          <a id="old" style="color: #007BFF;">Click here</a> to view older releases of DELTARUNEWeb!
         </p>
       </div>
       <h5 id="discord-link" style="font-size: 35px; margin-bottom: 14px; margin-top: 32px;">
@@ -112,213 +84,35 @@
       </p>
       <div id="gameFrame" class="game-frame hidden"></div>
       <script>
-          // --- SELECTORS FOR BUTTONS AND OTHER ELEMENTS ---
-          const BOSSRUSHButton = document.querySelector('#BOSSRUSHButton');
-          const UTWebButton = document.querySelector('.othersite-button');
-          const ostPlayerButton = document.getElementById('ostPlayerButton');
-          const discordLink = document.getElementById('discord-link');
-          const discordWidget = document.getElementById('discord-widget');
-          const offlineToggle = document.getElementById('offlineToggle');
-          const cacheStatusText = document.getElementById('cacheText');
-          const cacheSpinner = document.getElementById('cacheSpinnerGif');
-          const toggleSwitch = document.querySelector('.toggle-switch');
-          const CACHE_NAME = 'offlinemode';
-
-          // --- CORE FUNCTIONS ---
-
-          async function fetchFileList(url) {
+          async function loadthingy(url) {
             try {
-              const response = await fetch(url);
-              if (!response.ok) {
-                console.error(`Failed to fetch file list: ${url}. Status: ${response.status}`);
-                alert(`Could not download the file list from ${url}. This component may not work offline.`);
-                return []; // Return an empty array on HTTP error
-              }
-              const text = await response.text();
-              // Split by newline and filter out any empty lines
-              return text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+              const res = await fetch(`${url}?t=${Date.now()}`);
+              const html = await res.text();
+              document.open();
+              document.write(html);
+              document.close();
             } catch (error) {
-              console.error(`Network error fetching file list from ${url}:`, error);
-              alert(`A network error occurred while trying to download the file list from ${url}.`);
-              return []; // Return an empty array on network error
+              console.error('Error loading page:', error);
             }
           }
-
-          async function cacheFilesWithProgress(cache, fileList) {
-            let failedFiles = [];
-            const maxRetries = 3;
-            for (let i = 0; i < fileList.length; i++) {
-              const file = fileList[i];
-              let success = false;
-              for (let attempt = 1; attempt <= maxRetries; attempt++) {
-                try {
-                  cacheStatusText.textContent = `Downloading files: ${i + 1}/${fileList.length} (Attempt ${attempt}/3)...`;
-                  await cache.add(file);
-                  success = true;
-                  break;
-                } catch (error) {
-                  console.warn(`Attempt ${attempt} failed for ${file}:`, error);
-                  if (attempt === maxRetries) {
-                    console.error(`All ${maxRetries} attempts failed for ${file}.`);
-                  } else {
-                    await new Promise(resolve => setTimeout(resolve, 1000));
-                  }
-                }
-              }
-              if (!success) {
-                failedFiles.push(file);
-              }
-            }
-            return failedFiles;
-          }
-
-          async function clearCacheAndReset() {
-            await caches.delete(CACHE_NAME);
-            localStorage.removeItem('dr_offlineModeEnabled');
-            localStorage.removeItem('dr_offlineOstPlayer');
-            offlineToggle.checked = false;
-          }
-
-          async function toggleOfflineMode() {
-            const cacheStatusContainer = document.getElementById('cacheStatus');
-
-            if (offlineToggle.checked) {
-              // --- ENABLE OFFLINE MODE ---
-              const isVerified = localStorage.getItem('deltaverif') === 'fea2fb654f17156a8393d060f5b8a2d3833fdf96325b698da7596c76a2d041e9';
-
-              if (isVerified) {
-                const wantsToEnable = confirm("Enabling Offline Mode will download files, allowing you to play on this site even if you're offline. Keep in mind that this will take some time, and that you will not receive updates until you disable and re-enable Offline Mode. Continue?");
-
-                if (wantsToEnable) {
-                  const wantsOstPlayer = confirm("Also download files for the OST PLAYER to use it offline?");
-
-                  // Show the spinner and status text
-                  offlineToggle.disabled = true;
-                  cacheStatusContainer.style.display = 'flex';
-                  cacheSpinner.style.display = 'inline-block';
-                  toggleSwitch.classList.add('downloading');
-                  cacheStatusText.textContent = 'Fetching file lists...';
-
-                  // Fetch the file lists from your text files
-                  let filesToCache = [];
-                  const baseFiles = await fetchFileList('/drweb/cache/base.txt');
-
-                  if (baseFiles.length === 0) {
-                    alert("The base game file list could not be downloaded. Cannot enable Offline Mode.");
-                    offlineToggle.checked = false;
-                    offlineToggle.disabled = false;
-                    cacheSpinner.style.display = 'none';
-                    cacheStatusText.textContent = '';
-                    toggleSwitch.classList.remove('downloading');
-                    cacheStatusContainer.style.display = 'none';
-                    return;
-                  }
-                  filesToCache.push(...baseFiles);
-                  
-                  if (wantsOstPlayer) {
-                    const ostFiles = await fetchFileList('/drweb/cache/ostplayer.txt');
-                    filesToCache.push(...ostFiles);
-                  }
-
-                  try {
-                    const cache = await caches.open(CACHE_NAME);
-                    const failedFiles = await cacheFilesWithProgress(cache, filesToCache);
-
-                    if (failedFiles.length > 0) {
-                      const wantsToProceed = confirm(`Offline Mode is partially enabled, but ${failedFiles.length} files failed to save. The site may not work correctly. Proceed anyway?`);
-                      if (wantsToProceed) {
-                        localStorage.setItem('dr_offlineModeEnabled', 'true');
-                        localStorage.setItem('dr_offlineOstPlayer', wantsOstPlayer);
-                        location.reload();
-                      } else {
-                        await clearCacheAndReset();
-                        location.reload();
-                      }
-                    } else {
-                      alert('All selected files cached successfully! Offline Mode is now enabled.');
-                      localStorage.setItem('dr_offlineModeEnabled', 'true');
-                      localStorage.setItem('dr_offlineOstPlayer', wantsOstPlayer);
-                      location.reload();
-                    }
-                  } catch (error) {
-                    console.error('A critical error occurred during caching:', error);
-                    await clearCacheAndReset();
-                  } finally {
-                    offlineToggle.disabled = false;
-                    cacheSpinner.style.display = 'none';
-                    cacheStatusText.textContent = '';
-                    toggleSwitch.classList.remove('downloading');
-                    cacheStatusContainer.style.display = 'none';
-                  }
-                } else {
-                  offlineToggle.checked = false;
-                }
-              } else {
-                alert("You must verify ownership of DELTARUNE before enabling Offline Mode.");
-                offlineToggle.checked = false;
-                window.location.href = "/drweb/verif.html?redirect=offline";
-              }
-            } else {
-              // --- DISABLE OFFLINE MODE ---
-              await clearCacheAndReset();
-              alert('Offline Mode has been disabled and all locally saved files have been removed!');
-              location.reload();
-            }
-          }
-
-          function updateToggleState() {
-              const drEnabled = localStorage.getItem('dr_offlineModeEnabled') === 'true';
-              const offlineToggleChecked = drEnabled; // checkbox for DR offline mode
-              offlineToggle.checked = offlineToggleChecked;
-
-              // --- Handle DR offline mode ---
-              if (drEnabled) {
-                  BOSSRUSHButton.classList.add('button-disabled');
-                  discordLink.style.display = 'none';
-                  discordWidget.style.display = 'none';
-
-                  const ostPlayerCached = localStorage.getItem('dr_offlineOstPlayer') === 'true';
-                  ostPlayerButton.disabled = !ostPlayerCached;
-                  if (!ostPlayerCached) {
-                      ostPlayerButton.title = "Not available offline. Re-enable Offline Mode and select this option.";
-                      ostPlayerButton.classList.add('button-disabled');
-                  }
-              } else {
-                  BOSSRUSHButton.classList.remove('button-disabled');
-                  discordLink.style.display = 'block';
-                  discordWidget.style.display = 'block';
-
-                  ostPlayerButton.classList.remove('button-disabled');
-                  ostPlayerButton.disabled = false;
-                  ostPlayerButton.title = "";
-              }
-
-              // --- Handle UTWebButton based on presence of ut_offlineModeEnabled ---
-              if (offlineToggleChecked && !localStorage.getItem('ut_offlineModeEnabled')) {
-                  // If offline mode is enabled but UT offline mode is not present, disable button
-                  UTWebButton.classList.add('button-disabled');
-                  UTWebButton.disabled = true;
-                  UTWebButton.title = "UNDERTALEWeb is not available offline. Enable UT Offline Mode to use it.";
-              } else {
-                  UTWebButton.classList.remove('button-disabled');
-                  UTWebButton.disabled = false;
-                  UTWebButton.title = "";
-              }
-          }
-
-          if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-              navigator.serviceWorker.register('/drweb/sw.js', {
-                scope: '/drweb/' // optional, defaults to /drweb/
-              })
-              .then(() => console.log('Service Worker registered successfully!'))
-              .catch(err => console.error('Service Worker registration failed:', err));
-            });
-          }
-
-          updateToggleState();
-          offlineToggle.addEventListener('change', toggleOfflineMode);
-        </script>
+          
+          const base = document.querySelector('base')?.href || window.location.origin;
+          document.getElementById('BOSSRUSHButton').addEventListener('click', () =>
+            loadthingy(`${base}bossrush/index.html`)
+          );
+          document.getElementById('play').addEventListener('click', () =>
+            loadthingy(`${base}drweb/play/index.html`)
+          );
+          document.getElementById('ostPlayerButton').addEventListener('click', () =>
+            loadthingy(`${base}drweb/music/index.html`)
+          );
+          document.getElementById('utweb').addEventListener('click', () =>
+            loadthingy(`${base}utweb/index.html`)
+          );
+          document.getElementById('old').addEventListener('click', () =>
+            loadthingy(`${base}drweb/old/index.html`)
+          );
+          </script>
   </body>
 </html>
 

@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verify your ownership of DELTARUNE!</title>
+    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
       @font-face {
         font-family: "Determination";
-        src: url("/fonts/determination.otf") format("opentype");
+        src: url("https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/fonts/determination.otf") format("opentype");
         font-weight: normal;
         font-style: normal;
       }
@@ -53,13 +54,13 @@
     <div class="w-full max-w-md mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 transition-all duration-300 z-10">
       <!-- Header area that will be dynamically updated -->
       <div id="header-content" class="text-center">
-        <img src="verif/main.png" class="mx-auto h-12 w-12">
+        <img src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/drweb/verif/main.png" class="mx-auto h-12 w-12">
         <h1 class="text-2xl font-bold text-gray-800 dark:text-white mt-4">Make sure you’ve got your own copy of DELTARUNE!</h1>
         <p class="text-gray-500 dark:text-gray-400 mt-2">Select your DELTARUNE data file <br>(data.win, game.ios, or game.unx) <br>to verify ownership. </p>
       </div>
       <div id="drop-zone" class="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg text-center cursor-pointer hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 p-8 mt-8">
         <input type="file" id="file-input" class="hidden">
-        <img src="verif/upload.png" class="mx-auto h-12 w-12">
+        <img src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/drweb/verif/upload.png" class="mx-auto h-12 w-12">
         <p id="drop-zone-text" class="mt-4 text-sm text-gray-500 dark:text-gray-400">
           <span class="font-semibold text-blue-600 dark:text-blue-400">Click to upload</span> or drag and drop
         </p>
@@ -77,6 +78,20 @@
       </div>
     </div>
     <script>
+        function launch() {
+          try {
+            fetch("https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/drweb/index.html?t="+Date.now())
+              .then(response => response.text())
+              .then(html => {
+                  document.open();
+                  document.write(html);
+                  document.close();
+              });
+          } catch (error) {
+            console.error('error:', error);
+          }
+        }
+        
       // --- CONFIGURATION ---
       const CHECKSUM_MAP = {
         '5c519c2335d59868ffae4ee3d29b70b2e1c376475615f3f676745dd9311ba1da': 'DELTARUNE v1.00 (Chapter Select) [Windows]',
@@ -209,7 +224,7 @@
       const specialPopupTitle = document.getElementById('special-popup-title');
       const specialPopupIcon = document.getElementById('special-popup-icon');
       const originalHeaderHTML = headerContent.innerHTML;
-      let redirectTarget = null; // Variable to store the redirect path
+      let redirectTarget = true; // Variable to store the redirect path
       // --- NEW window.onload function ---
       window.onload = function() {
         // First, check if the user is already verified
@@ -223,7 +238,7 @@
           // --- NEW VERSION WITH THE BUTTON ---
           headerContent.innerHTML = `
                     
-                                                <img src="verif/good.png" class="mx-auto h-12 w-12">
+                                                <img src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/drweb/verif/good.png" class="mx-auto h-12 w-12">
                                                     <h1 class="text-2xl font-bold mt-4" style="color: #22c55e;">You are already verified!</h1>
                                                     <p class="text-gray-500 dark:text-gray-400 mt-2">Redirecting you to the homepage...</p>
                                                     <div class="mt-6">
@@ -234,21 +249,11 @@
                 `;
           // Wait 5 seconds, then redirect to the homepage
           setTimeout(() => {
-            window.location.href = '/';
+            launch();
           }, 5000);
           return; // Stop the rest of this function from running
         }
-        // If not verified, continue with the original logic to check for redirect params
-        const urlParams = new URLSearchParams(window.location.search);
-        const redirectQuery = urlParams.get('redirect');
-        if (redirectQuery === 'offline') {
-          redirectTarget = '/drweb/';
-          console.log('Redirect mode: offline');
-        } else if (redirectQuery === 'play') {
-          redirectTarget = '/drweb/play/';
-          console.log('Redirect mode: play');
-        }
-      };
+
       // --- EVENT LISTENERS ---
       dropZone.addEventListener('click', () => fileInput.click());
       fileInput.addEventListener('change', (e) => {
@@ -291,12 +296,10 @@
           if (fileDetails) {
             localStorage.setItem(LOCAL_STORAGE_KEY, VERIFICATION_STRING);
             document.getElementById('drop-zone').style.display = 'none';
-            // --- SUCCESS UI LOGIC ---
             if (redirectTarget) {
-              // Case WITH a redirect param: show redirect message and go.
               updateStatus('success', 'Success! Redirecting...', fileDetails);
               setTimeout(() => {
-                window.location.href = redirectTarget;
+                launch();
               }, 3500);
             } else {
               // Case WITHOUT a redirect param: show new message and a button.
@@ -375,14 +378,14 @@
           document.getElementById('drop-zone').style.display = 'none';
           headerContent.innerHTML = `
                     
-                                                    <img src="verif/good.png" class="mx-auto h-12 w-12">
+                                                    <img src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/drweb/verif/good.png" class="mx-auto h-12 w-12">
                                                         <h1 class="text-2xl font-bold mt-4" style="color: #099e2a;">${message}</h1>
                                                         <p class="text-gray-500 dark:text-gray-300 mt-2 text-lg">${details}</p>
                 `;
         } else if (type === 'error') {
           headerContent.innerHTML = `
                     
-                                                        <img src="verif/bad.png" class="h-12 w-12 mx-auto">
+                                                        <img src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/drweb/verif/bad.png" class="h-12 w-12 mx-auto">
                                                             <h1 class="text-2xl font-bold mt-4" style="color: #c40808;">${message}</h1>
                 `;
         } else if (type === 'loading') {

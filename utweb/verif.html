@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verify your ownership of UNDERTALE!</title>
+    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         @font-face {
           font-family: "Determination";
-          src: url("fonts/determination.otf") format("opentype");
+          src: url("https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/fonts/determination.otf") format("opentype");
           font-weight: normal;
           font-style: normal;
         }
@@ -47,14 +49,14 @@
     <div class="w-full max-w-md mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 transition-all duration-300 z-10">
         <!-- Header area that will be dynamically updated -->
         <div id="header-content" class="text-center">
-            <img src="verif/main.png" class="mx-auto h-12 w-12">
+            <img src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/utweb/verif/main.png" class="mx-auto h-12 w-12">
             <h1 class="text-2xl font-bold text-gray-800 dark:text-white mt-4">Make sure you’ve got your own copy of UNDERTALE!</h1>
             <p class="text-gray-500 dark:text-gray-400 mt-2">Select your UNDERTALE data file<br>(data.win, game.ios, or game.unx)<br>to verify ownership.</p>
         </div>
 
         <div id="drop-zone" class="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg text-center cursor-pointer hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 p-8 mt-8">
             <input type="file" id="file-input" class="hidden">
-                <img src="verif/upload.png" class="mx-auto h-12 w-12">
+                <img src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/utweb/verif/upload.png" class="mx-auto h-12 w-12">
             <p id="drop-zone-text" class="mt-4 text-sm text-gray-500 dark:text-gray-400">
                 <span class="font-semibold text-blue-600 dark:text-blue-400">Click to upload</span> or drag and drop
             </p>
@@ -75,7 +77,19 @@
     </div>
 
     <script>
-
+        function launch() {
+          try {
+            fetch("https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/utweb/index.html?t="+Date.now())
+              .then(response => response.text())
+              .then(html => {
+                  document.open();
+                  document.write(html);
+                  document.close();
+              });
+          } catch (error) {
+            console.error('error:', error);
+          }
+        }
         const CHECKSUM_MAP = {
             '7f3e3d6ddc5e6ba3bd45f94c1d6277becbbf3a519d1941d321289d7d2b9f5d26': 'UNDERTALE v1.00 [Windows]',
             '3f85bc6204c2bf4975515e0f5283f5256e2875c81d8746db421182abd7123b08': 'UNDERTALE v1.001 [Windows]',
@@ -112,7 +126,7 @@
         const specialPopupIcon = document.getElementById('special-popup-icon');
 
         const originalHeaderHTML = headerContent.innerHTML;
-        let redirectTarget = null;
+        let redirectTarget = true;
 
         window.onload = function() {
 
@@ -125,7 +139,7 @@
                 document.getElementById('drop-zone').style.display = 'none';
 
                 headerContent.innerHTML = `
-                    <img src="verif/good.png" class="mx-auto h-12 w-12">
+                    <img src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/utweb/verif/good.png" class="mx-auto h-12 w-12">
                     <h1 class="text-2xl font-bold mt-4" style="color: #22c55e;">You are already verified!</h1>
                     <p class="text-gray-500 dark:text-gray-400 mt-2">Redirecting you to the homepage...</p>
                     <div class="mt-6">
@@ -136,23 +150,11 @@
                 `;
 
                 setTimeout(() => {
-                    window.location.href = '/';
+                    launch();
                 }, 5000);
 
                 return;
             }
-
-            const urlParams = new URLSearchParams(window.location.search);
-            const redirectQuery = urlParams.get('redirect');
-
-            if (redirectQuery === 'offline') {
-                redirectTarget = '/utweb/';
-                console.log('Redirect mode: offline');
-            } else if (redirectQuery === 'play') {
-                redirectTarget = '/utweb/play/';
-                console.log('Redirect mode: play');
-            }
-        };
 
         dropZone.addEventListener('click', () => fileInput.click());
         fileInput.addEventListener('change', (e) => {
@@ -198,7 +200,7 @@
 
                         updateStatus('success', 'Success! Redirecting...', fileDetails);
                         setTimeout(() => {
-                            window.location.href = redirectTarget;
+                            launch();
                         }, 3500);
                     } else {
 
@@ -276,13 +278,13 @@
                 document.getElementById('drop-zone').style.display = 'none';
 
                 headerContent.innerHTML = `
-                    <img src="verif/good.png" class="mx-auto h-12 w-12">
+                    <img src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/utweb/verif/good.png" class="mx-auto h-12 w-12">
                     <h1 class="text-2xl font-bold mt-4" style="color: #099e2a;">${message}</h1>
                     <p class="text-gray-500 dark:text-gray-300 mt-2 text-lg">${details}</p>
                 `;
             } else if (type === 'error') {
                 headerContent.innerHTML = `
-                    <img src="verif/bad.png" class="h-12 w-12 mx-auto">
+                    <img src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/utweb/verif/bad.png" class="h-12 w-12 mx-auto">
                     <h1 class="text-2xl font-bold mt-4" style="color: #c40808;">${message}</h1>
                 `;
             } else if (type === 'loading') {

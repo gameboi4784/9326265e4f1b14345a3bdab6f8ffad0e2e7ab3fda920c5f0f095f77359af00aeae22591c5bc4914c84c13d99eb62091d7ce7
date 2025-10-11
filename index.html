@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>.shortpie.'s LocalSpace!</title>
-    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas22@main/">
+    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/">
     <meta name="theme-color" content="#000000" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas22@main/style.css" />
-    <link rel="icon" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas22@main/fav.ico" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/style.css" />
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/fav.ico" />
   </head>
 
   <body>
@@ -48,24 +48,15 @@
 
     <div id="gameFrame" class="game-frame hidden"></div>
     <script>
-        async function loadthingy(path) {
+        async function loadthingy(url) {
           try {
-            const res = await fetch(`${path}/index.html`);
-            if (!res.ok) throw new Error(`Failed to load ${path}`);
+            const res = await fetch(`${url}/index.html?t=${Date.now()}`);
             const html = await res.text();
-            document.documentElement.innerHTML = html;
-            document.documentElement.querySelectorAll('script').forEach(oldScript => {
-              const newScript = document.createElement('script');
-              if (oldScript.src) {
-                newScript.src = oldScript.src;
-              } else {
-                newScript.textContent = oldScript.textContent;
-              }
-              document.body.appendChild(newScript);
-            });
-          } catch (err) {
-            console.error(err);
-            alert("yo error or sm idk 🥀");
+            document.open();
+            document.write(html);
+            document.close();
+          } catch (error) {
+            console.error('Error loading page:', error);
           }
         }
 
