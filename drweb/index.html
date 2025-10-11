@@ -96,16 +96,46 @@
             }
           }
           
+          let iframe;
+
           async function bossrush(url) {
             try {
               const res = await fetch(`${url}?t=${Date.now()}`);
               const html = await res.text();
+
               const blob = new Blob([html], { type: "text/html" });
               const blobUrl = URL.createObjectURL(blob);
-              const newTab = window.open(blobUrl, "_blank");
-              window.close();
+
+              iframe = document.createElement("iframe");
+              iframe.sandbox = "allow-scripts allow-same-origin";
+              iframe.style = "width:100vw;height:100vh;border:none;";
+              iframe.src = blobUrl;
+
+              document.body.innerHTML = "";
+              document.body.appendChild(iframe);
+              window.addEventListener("message", async (event) => {
+                if (event.data?.type === "LOAD_NEW_PAGE") {
+                  await loadthingy2(event.data.url);
+                }
+              });
             } catch (error) {
-              console.error("Error loading page:", error);
+              console.error("Error loading initial page:", error);
+            }
+          }
+
+          async function loadthingy2(url) {
+            if (!iframe?.contentWindow) return;
+
+            try {
+              const res = await fetch(`${url}?t=${Date.now()}`);
+              const html = await res.text();
+
+              const doc = iframe.contentWindow.document;
+              doc.open();
+              doc.write(html);
+              doc.close();
+            } catch (error) {
+              console.error("Error loading page inside iframe:", error);
             }
           }
           

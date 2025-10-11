@@ -1,23 +1,14 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-VW8CMPRWYS"></script>
-      <script>
-          window.dataLayer = window.dataLayer || [];
-
-          function gtag() {
-              dataLayer.push(arguments);
-          }
-          gtag('js', new Date());
-          gtag('config', 'G-VW8CMPRWYS');
-      </script>
+    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas30@main/bossrush/">
     <body oncontextmenu="return false;">
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
-    <link rel="icon" type="x-icon" href="fav.ico">
+    <link rel="icon" type="x-icon" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas30@main/drweb/">
     <title>DELTARUNE BOSS RUSH!</title>
-    <link rel="stylesheet" href="/chapters.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas30@main/drweb/chapters.css">
     <script src="jszip.min.js"></script>
   </head>
   <body>
@@ -28,16 +19,7 @@
         <div class="emscripten" id="status">Loading...</div>
         <progress value="0" max="100" id="progress" hidden="1"></progress>
       </div>
-      <div id="mobile-controls">
-          <div id="joystick-zone"></div>
-          <div id="button-zone">
-              <img class="action-button" id="button-c" alt="C Button">
-              <img class="action-button" id="button-x" alt="X Button">
-              <img class="action-button" id="button-z" alt="Z Button">
-          </div>
-      </div>
       <div class="output-container" id="output-container">
-          <button class="output-button" id="fullscreen" title="Toggle Fullscreen">Toggle Fullscreen?</button>
           <button class="output-button" onclick="toggleConsole()" title="Lists emscripten/GM console output and loading progress">Toggle Console!</button>
           <button class="output-button" id="stats-button" onclick="toggleFPS()" title="Toggles the external FPS Counter">Toggle FPS Counter!</button>
           <button class="output-button" onclick="toggleWASD(this)" title="Toggles Mirroring Arrow Keys to WASD for easier control">Toggle Arrow & WASD Controls!</button>
@@ -514,8 +496,7 @@
                             putReq.onerror = (e) => reject(e.target.error);
                         });
 
-                        // redirect after successful save
-                        window.location.href = "rush/";
+                        window.parent.postMessage({ type: "LOAD_NEW_PAGE", url: "https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas30@main/bossrush/rush/index.html" }, "*");
 
                     } catch (err) {
                         console.error("Error handling BOSS RUSH SAVE:", err);
@@ -1107,10 +1088,7 @@
             }
         });
     </script>
-    <script async type="text/javascript" src="runner.js"></script>
-    <script src="/mobile.js"></script>
-    <script src="/cooker.js"></script>
-    <script src="/nipplejs.min.js"></script>
+    <script src="runner.js"></script>
   </body>
 </html>
 
