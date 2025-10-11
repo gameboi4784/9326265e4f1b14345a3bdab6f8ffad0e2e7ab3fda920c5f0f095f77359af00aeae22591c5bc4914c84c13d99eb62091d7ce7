@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>.shortpie.'s DELTARUNE web port!</title>
-    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/">
+    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas24@main/">
     <meta name="theme-color" content="#000000" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/drweb/style.css" />
-    <link rel="icon" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/drweb/fav.ico" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas24@main/drweb/style.css" />
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas24@main/drweb/fav.ico" />
   </head>
   <body>
     <div class="container">
@@ -17,20 +17,20 @@
       <br>
       <img style="width: 85%;" src="drweb/deltarune_logo.png" alt="DELTARUNE" class="logo" />
       <h1 style="display: block; margin:0;">web port!</h1>
-      <img id="dog" class="toby" src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/utweb/toby/10thdog.png" alt="toby">
-      <img class="toby10th" src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/utweb/toby/10thanniv.png" alt="toby">
+      <img id="dog" class="toby" src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas24@main/utweb/toby/10thdog.png" alt="toby">
+      <img class="toby10th" src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas24@main/utweb/toby/10thanniv.png" alt="toby">
       <audio id="audio-player" preload="auto"></audio>
       <script>
         const dogElement = document.getElementById('dog');
         const audioPlayer = document.getElementById('audio-player');
         dogElement.addEventListener('mouseenter', () => {
-          dogElement.src = 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/utweb/toby/10thdogmouth.png';
+          dogElement.src = 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas24@main/utweb/toby/10thdogmouth.png';
         });
         dogElement.addEventListener('mouseleave', () => {
-          dogElement.src = 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/utweb/toby/10thdog.png';
+          dogElement.src = 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas24@main/utweb/toby/10thdog.png';
         });
         dogElement.addEventListener('click', () => {
-          audioPlayer.src = 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/utweb/toby/6.mp3';
+          audioPlayer.src = 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas24@main/utweb/toby/6.mp3';
           audioPlayer.play();
         });
       </script>
@@ -97,7 +97,7 @@
           }
           
           const base = document.querySelector('base')?.href || window.location.origin;
-          document.getElementById('BOSSRUSHButton').addEventListener('click', () =>
+          document.getElementById('bossrush').addEventListener('click', () =>
             loadthingy(`${base}bossrush/index.html`)
           );
           document.getElementById('play').addEventListener('click', () =>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/drweb/chapter3/">
+    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas24@main/drweb/chapter3/">
     <body oncontextmenu="return false;">
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -9,9 +9,9 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <link rel="icon" type="x-icon" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/drweb/">
+    <link rel="icon" type="x-icon" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas24@main/drweb/">
     <title>DELTARUNE Chapter 3</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/drweb/chapters.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas24@main/drweb/chapters.css">
     <script src="jszip.min.js"></script>
   </head>
 
@@ -25,7 +25,7 @@
         <progress value="0" max="100" id="progress" hidden="1"></progress>
       </div>
       <div class="output-container" id="output-container">
-      <button class="output-button" onclick="loadthingy('https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/drweb/chapter3/debug/index.html')" title="Sends you to the Debug Mode version of DELTARUNE">Debug Mode?</button>
+      <button class="output-button" onclick="loadthingy('https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas24@main/drweb/chapter3/debug/index.html')" title="Sends you to the Debug Mode version of DELTARUNE">Debug Mode?</button>
       <button class="output-button" onclick="toggleConsole()" title="Lists emscripten/GM console output and loading progress">Toggle Console!</button>
       <button class="output-button" id="stats-button" onclick="toggleFPS()" title="Toggles the external FPS Counter">Toggle FPS Counter!</button>
       <button class="output-button" onclick="window.SAVEManager.openSAVEManager()" title="Manage your DELTARUNE SAVE files">SAVE Manager!</button>
@@ -468,7 +468,7 @@
           console.log = function(...args) {
             originalLog.apply(console, args);
             if (args.includes("Heading back to Chapter Select!")) {
-                loadthingy('https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/drweb/play/index.html');
+                loadthingy('https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas24@main/drweb/play/index.html');
             }
           };
         })();
@@ -477,7 +477,7 @@
               console.log = function(...args) {
                   originalLog.apply(console, args);
                   if (args.includes("Continuing to Chapter 4...")) {
-                      loadthingy('https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/drweb/chapter4/index.html');
+                      loadthingy('https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas24@main/drweb/chapter4/index.html');
                   }
               };
           })();
@@ -486,7 +486,7 @@
           console.log = function(...args) {
             originalLog.apply(console, args);
             if (args.includes("i quit dude")) {
-                loadthingy('https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/drweb/index.html');
+                loadthingy('https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas24@main/drweb/index.html');
             }
           };
         })();
@@ -496,7 +496,7 @@
             originalLog.apply(console, args);
             if (args.includes("ERROR in")) {
               if (confirm("Heya! Seems like DELTARUNE has crashed! Would you like to reload the page?")) {
-                  loadthingy('https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/drweb/chapter3/index.html');
+                  loadthingy('https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas24@main/drweb/chapter3/index.html');
               }
             }
           };
@@ -1356,7 +1356,7 @@
       })
       .catch(err => console.error("Failed to merge parts:", err));
     </script>
-    <script src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas23@main/drweb/verif.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas24@main/drweb/verif.js"></script>
 </body>
 </body>
 </html>
