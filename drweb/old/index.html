@@ -4,19 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Older release notes!</title>
-    <link rel="stylesheet" href="/style.css" />
-    <link rel="icon" href="/fav.ico" />
+    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas36@main/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas36@main/drweb/style.css" />
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas36@main/drweb/fav.ico" />
   </head>
   <body>
+      <script>
+          async function loadthingy() {
+            try {
+                const res = await fetch(`https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas36@main/drweb/index.html?t=${Date.now()}`);
+                const html = await res.text();
+                const newTab = window.open('about:blank');
+                newTab.document.open();
+                newTab.document.write(html);
+                newTab.document.close();
+                newTab.focus();
+                window.close();
+            } catch (error) {
+              console.error('Error loading page:', error);
+            }
+          }
+          document.getElementById('new').addEventListener('click', () =>
+            loadthingy();
+          );
+      </script>
       <div class="container">
           <h2>welcome to</h2>
           <h1 class="shortpie">&nbsp;.shortpie.'s</h1>
           <br>
           <br>
-          <img src="/drweb/deltarune_logo.png" alt="DELTARUNE" class="logo" />
+          <img src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas36@main/drweb/deltarune_logo.png" alt="DELTARUNE" class="logo" />
           <h1 style="display: block; margin: 0; margin-bottom: 25px;">web port! (release notes)</h1>
           
-          <p style="color: #fff;"><a href="/drweb/" style="color: #007BFF;">Click here</a> to go back to the main DELTARUNEWeb homepage!</p>
+          <p style="color: #fff;"><a id="new" style="color: #007BFF;">Click here</a> to go back to the main DELTARUNEWeb homepage!</p>
           
           <div class="notes">
             <h2 class="notes-title">— UPDATE NOTES —</h2>
@@ -26,9 +46,6 @@
               <li class="update">A bug has been fixed that shrunk the screen/game canvas upon entering fullscreen!</li>
               <li class="update">As of this update, there are no other planned additions. Saving functionality may now be working for some of you, but if you have been having problems with SAVEs for the past few updates, don't count on it. v6 is coming SOON!!!</li>
             </ul>
-            <p style="color: #000;">
-              <a href="old/" style="color: #007BFF;">Click here</a> to view older releases of DELTARUNEWeb!
-            </p>
           </div>
           
           <div class="notes">
