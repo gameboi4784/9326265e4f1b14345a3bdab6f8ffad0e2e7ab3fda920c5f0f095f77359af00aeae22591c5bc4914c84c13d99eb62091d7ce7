@@ -60,56 +60,19 @@
           }
         }
 
-      function abb() {
-        const newTab = window.open('about:blank', '_blank');
-        if (!newTab) {
-          alert('Pop-up blocked! Please allow pop-ups...');
-          return;
-        }
-
-        newTab.document.open();
-        newTab.document.write(`
-          <html>
-            <head>
-              <title>&#8203;</title>
-              <style>
-                html, body {
-                  margin: 0;
-                  padding: 0;
-                  background: black;
-                  overflow: hidden;
-                  height: 100%;
-                  width: 100%;
-                }
-                iframe {
-                  border: none;
-                  width: 100%;
-                  height: 100%;
-                }
-              </style>
-            </head>
-            <body>
-              <iframe id="localFrame" src="about:blank"></iframe>
-            </body>
-          </html>
-        `);
-        newTab.document.close();
-
-        const interval = setInterval(() => {
-          const frame = newTab.document.getElementById('localFrame');
-          if (frame && frame.contentDocument) {
-            clearInterval(interval);
-
-            let html = document.documentElement.outerHTML;
-            html = html.replace(/<link[^>]*rel=["']icon["'][^>]*>/gi, '');
-            html = html.replace(/<title>.*?<\/title>/i, '<title>&#8203;</title>');
-
-            frame.contentDocument.open();
-            frame.contentDocument.write(html);
-            frame.contentDocument.close();
+        async function abb() {
+          try {
+            const res = await fetch(`${location.href}?t=${Date.now()}`);
+            const html = await res.text();
+            const persistentTitle = '\u200C';
+            document.open();
+            document.write(html);
+            document.close();
+            document.title = persistentTitle;
+          } catch (error) {
+            console.error('Error loading page:', error);
           }
-        }, 50);
-      }
+        }
 
       document.getElementById('drweb').addEventListener('click', () => loadthingy('drweb'));
       document.getElementById('utweb').addEventListener('click', () => loadthingy('utweb'));
