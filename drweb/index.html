@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>.shortpie.'s DELTARUNE web port!</title>
-    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas47@main/">
+    <base href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas48@main/">
     <meta name="theme-color" content="#000000" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas47@main/drweb/style.css" />
-    <link rel="icon" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas47@main/drweb/fav.ico" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas48@main/drweb/style.css" />
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas48@main/drweb/fav.ico" />
   </head>
   <body>
     <div class="container">
@@ -17,20 +17,20 @@
       <br>
       <img style="width: 85%;" src="drweb/deltarune_logo.png" alt="DELTARUNE" class="logo" />
       <h1 style="display: block; margin:0;">web port!</h1>
-      <img id="dog" class="toby" src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas47@main/utweb/toby/10thdog.png" alt="toby">
-      <img class="toby10th" src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas47@main/utweb/toby/10thanniv.png" alt="toby">
+      <img id="dog" class="toby" src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas48@main/utweb/toby/10thdog.png" alt="toby">
+      <img class="toby10th" src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas48@main/utweb/toby/10thanniv.png" alt="toby">
       <audio id="audio-player" preload="auto"></audio>
       <script>
         const dogElement = document.getElementById('dog');
         const audioPlayer = document.getElementById('audio-player');
         dogElement.addEventListener('mouseenter', () => {
-          dogElement.src = 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas47@main/utweb/toby/10thdogmouth.png';
+          dogElement.src = 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas48@main/utweb/toby/10thdogmouth.png';
         });
         dogElement.addEventListener('mouseleave', () => {
-          dogElement.src = 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas47@main/utweb/toby/10thdog.png';
+          dogElement.src = 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas48@main/utweb/toby/10thdog.png';
         });
         dogElement.addEventListener('click', () => {
-          audioPlayer.src = 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas47@main/utweb/toby/6.mp3';
+          audioPlayer.src = 'https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas48@main/utweb/toby/6.mp3';
           audioPlayer.play();
         });
       </script>
@@ -99,12 +99,41 @@
             }
           }
           
+          async function loadplay(url) {
+              try {
+                  const res = await fetch(`${url}?t=${Date.now()}`);
+                  const html = await res.text();
+                  const newTab = window.open('about:blank');
+                  if (!newTab) {
+                      console.error("Popup blocked — user gesture not recognized");
+                      return;
+                  }
+                  newTab.document.open();
+                  newTab.document.write(html);
+                  newTab.document.close();
+                  newTab.focus();
+                  window.close();
+              } catch (error) {
+                  console.error('Error loading page:', error);
+              }
+          }
+
+          document.getElementById('play').addEventListener('click', async () => {
+              const requiredKey = "deltaverif";
+              const requiredValue = "fea2fb654f17156a8393d060f5b8a2d3833fdf96325b698da7596c76a2d041e9";
+
+              const storedValue = localStorage.getItem(requiredKey);
+
+              if (storedValue !== requiredValue) {
+                  await loadplay("https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas48@main/drweb/verif.html");
+              } else {
+                  await loadplay("https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/wowzas48@main/drweb/play/index.html");
+              }
+          });
+          
           const base = document.querySelector('base')?.href || window.location.origin;
           document.getElementById('bossrush').addEventListener('click', () =>
             bossrush(`${base}bossrush/index.html`)
-          );
-          document.getElementById('play').addEventListener('click', () =>
-            loadthingy(`${base}drweb/play/index.html`)
           );
           document.getElementById('ostPlayerButton').addEventListener('click', () =>
             loadthingy(`${base}drweb/music/index.html`)
