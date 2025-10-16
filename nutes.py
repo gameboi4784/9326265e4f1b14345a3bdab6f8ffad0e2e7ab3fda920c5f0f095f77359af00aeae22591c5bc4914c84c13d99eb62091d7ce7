@@ -17,4 +17,4 @@ def replace_in_files(root_dir, old_text, new_text):
                     print(f"Error processing {file_path}: {e}")
 
 if __name__ == "__main__":
-    replace_in_files(".", "wowzas48", "wowzas49")
+    replace_in_files(".", "wowzas49", "")
