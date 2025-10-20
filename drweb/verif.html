@@ -16,20 +16,17 @@
         font-style: normal;
       }
 
-      /* Custom styles for the page */
       body {
         font-family: 'Determination', sans-serif;
       }
 
-      /* Style for the file input drag-over state */
       .drag-over {
         border-color: #3b82f6;
-        /* blue-500 */
+
         background-color: #eff6ff;
-        /* blue-50 */
+
       }
 
-      /* Styles for the special pop-up modal */
       #special-popup-backdrop {
         transition: opacity 0.3s ease-in-out;
       }
@@ -52,7 +49,7 @@
   </head>
   <body class="bg-gray-100 dark:bg-gray-900 flex items-center justify-center min-h-screen transition-colors duration-300">
     <div class="w-full max-w-md mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 transition-all duration-300 z-10">
-      <!-- Header area that will be dynamically updated -->
+      
       <div id="header-content" class="text-center">
         <img src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/9326265e4f1b14345a3bdab6f8ffad0e2e7ab3fda920c5f0f095f77359af00aeae22591c5bc4914c84c13d99eb62091d7ce7@main/drweb/verif/main.png" class="mx-auto h-12 w-12">
         <h1 class="text-2xl font-bold text-gray-800 dark:text-white mt-4">Make sure you’ve got your own copy of DELTARUNE!</h1>
@@ -66,12 +63,12 @@
         </p>
         <p class="text-xs text-gray-500 dark:text-gray-500 mt-1">Select your DELTARUNE data file!</p>
       </div>
-      <!-- Status/Result Display Area -->
+      
       <div id="status-container" class="hidden mt-4 text-center min-h-[60px]">
-        <!-- This area will be populated by JavaScript for loading/error messages or the home button -->
+        
       </div>
     </div>
-    <!-- Special Pop-up Modal -->
+    
     <div id="special-popup-backdrop" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 opacity-0 pointer-events-none z-50">
       <div id="special-popup-content" class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl text-center max-w-sm mx-auto opacity-0 p-6">
         <h3 id="special-popup-title" class="text-xl font-bold text-gray-800 dark:text-white"></h3>
@@ -91,8 +88,7 @@
             console.error('error:', error);
           }
         }
-        
-      // --- CONFIGURATION ---
+
       const CHECKSUM_MAP = {
         '5c519c2335d59868ffae4ee3d29b70b2e1c376475615f3f676745dd9311ba1da': 'DELTARUNE v1.00 (Chapter Select) [Windows]',
         '508b7b2045d2af849bd11aca3013765220a09980e2eb3233c0276459402cee4c': 'DELTARUNE v1.00 (Chapter 1) [Windows]',
@@ -134,7 +130,7 @@
         'ff626a8dc1a3d919341f1d693adcddfdfa6a7041a13967fe44629b5ed8eac08d': 'DELTARUNE v1.05 (Chapter 2) [Windows]',
         'feab1c2b6e2a6ed05dd21b203422410a1fefd03d81023c6e8b03e5f64328c113': 'DELTARUNE v1.05 (Chapter 3) [Windows]',
         'ed661125e828b5adb27a154618a2f784fa4b7cb3da4375864160d2348f591dc0': 'DELTARUNE v1.05 (Chapter 4) [Windows]',
-        
+
         '6d6a26e8b5e7567d424679dbb0325a30dbda44d583f31961c4a43a6b906cc986': 'DELTARUNE v1.00 (Chapter Select) [Mac]',
         'e9a8377b70a2b75c86fb6a0121fafcb07a9d41e6852a082022e089d7a169aee3': 'DELTARUNE v1.00-v1.01C (Chapter 1) [Mac]',
         'b07dabd0200a6cee1ddc1eb893cbcfbb3e8bd0f0c450be267b3248e9d4191283': 'DELTARUNE v1.00-v1.01A (Chapter 2) [Mac]',
@@ -214,7 +210,7 @@
       };
       const LOCAL_STORAGE_KEY = 'deltaverif';
       const VERIFICATION_STRING = 'fea2fb654f17156a8393d060f5b8a2d3833fdf96325b698da7596c76a2d041e9';
-      // --- DOM ELEMENT REFERENCES ---
+
       const dropZone = document.getElementById('drop-zone');
       const fileInput = document.getElementById('file-input');
       const statusContainer = document.getElementById('status-container');
@@ -224,20 +220,19 @@
       const specialPopupTitle = document.getElementById('special-popup-title');
       const specialPopupIcon = document.getElementById('special-popup-icon');
       const originalHeaderHTML = headerContent.innerHTML;
-      let redirectTarget = true; // Variable to store the redirect path
-      // --- NEW window.onload function ---
+      let redirectTarget = true;
+
       window.onload = function() {
-        // First, check if the user is already verified
+
         const existingVerification = localStorage.getItem(LOCAL_STORAGE_KEY);
         if (existingVerification === VERIFICATION_STRING) {
-          // If they are verified, show a message and prepare to redirect
+
           console.log('User already verified. Heading back to the homepage in 5 seconds...');
-          // Hide the uploader UI immediately
+
           document.getElementById('drop-zone').style.display = 'none';
-          // Update the header with the "already verified" message
-          // --- NEW VERSION WITH THE BUTTON ---
+
           headerContent.innerHTML = `
-                    
+
                                                 <img src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/9326265e4f1b14345a3bdab6f8ffad0e2e7ab3fda920c5f0f095f77359af00aeae22591c5bc4914c84c13d99eb62091d7ce7@main/drweb/verif/good.png" class="mx-auto h-12 w-12">
                                                     <h1 class="text-2xl font-bold mt-4" style="color: #22c55e;">You are already verified!</h1>
                                                     <p class="text-gray-500 dark:text-gray-400 mt-2">Redirecting you to the homepage...</p>
@@ -247,14 +242,13 @@
                             </button>
                                                     </div>
                 `;
-          // Wait 5 seconds, then redirect to the homepage
+
           setTimeout(() => {
             launch();
           }, 5000);
-          return; // Stop the rest of this function from running
+          return;
         }
 
-      // --- EVENT LISTENERS ---
       dropZone.addEventListener('click', () => fileInput.click());
       fileInput.addEventListener('change', (e) => {
         if (e.target.files.length > 0) handleFile(e.target.files[0]);
@@ -275,7 +269,7 @@
         dropZone.classList.remove('drag-over');
         if (e.dataTransfer.files.length > 0) handleFile(e.dataTransfer.files[0]);
       });
-      // --- CORE LOGIC ---
+
       async function handleFile(file) {
         if (!file) {
           updateStatus('error', 'No file selected.');
@@ -287,11 +281,11 @@
         dropZoneText.textContent = file.name;
         try {
           const checksum = await calculateSHA256(file);
-          let fileDetails = CHECKSUM_MAP[checksum]; // Check the normal map first
-          const specialEntry = SPECIAL_CHECKSUMS[checksum]; // Check the special map
+          let fileDetails = CHECKSUM_MAP[checksum];
+          const specialEntry = SPECIAL_CHECKSUMS[checksum];
           if (specialEntry) {
-            showSpecialPopup(specialEntry.message); // Show the popup message
-            fileDetails = specialEntry.details; // A special file is valid, so set its details
+            showSpecialPopup(specialEntry.message);
+            fileDetails = specialEntry.details;
           }
           if (fileDetails) {
             localStorage.setItem(LOCAL_STORAGE_KEY, VERIFICATION_STRING);
@@ -302,11 +296,11 @@
                 launch();
               }, 3500);
             } else {
-              // Case WITHOUT a redirect param: show new message and a button.
+
               updateStatus('success', 'Ownership has been successfully verified, you may now return to the homepage!', fileDetails);
-              // Append the button to the header content area
+
               headerContent.innerHTML += `
-                            
+
                                                     <div class="mt-6">
                                                         <a href="/" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
                                     ← back to home?
@@ -351,7 +345,7 @@
       function resetUploader() {
         document.getElementById('drop-zone').style.display = 'block';
       }
-      // --- UI UPDATE FUNCTIONS ---
+
       function showSpecialPopup(message) {
         specialPopupTitle.textContent = message;
         specialPopupBackdrop.classList.add('visible');
@@ -363,35 +357,35 @@
       function handleUnverify() {
         const isConfirmed = window.confirm("Are you sure you want to unverify your ownership of DELTARUNE?");
         if (isConfirmed) {
-          // If the user clicks "OK", remove the item from localStorage
+
           localStorage.removeItem(LOCAL_STORAGE_KEY);
-          // Reload the page to show the uploader again
+
           window.location.reload();
         }
       }
 
       function updateStatus(type, message, details = null) {
-        // Hide the bottom status container by default
+
         statusContainer.classList.add('hidden');
         statusContainer.innerHTML = '';
         if (type === 'success') {
           document.getElementById('drop-zone').style.display = 'none';
           headerContent.innerHTML = `
-                    
+
                                                     <img src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/9326265e4f1b14345a3bdab6f8ffad0e2e7ab3fda920c5f0f095f77359af00aeae22591c5bc4914c84c13d99eb62091d7ce7@main/drweb/verif/good.png" class="mx-auto h-12 w-12">
                                                         <h1 class="text-2xl font-bold mt-4" style="color: #099e2a;">${message}</h1>
                                                         <p class="text-gray-500 dark:text-gray-300 mt-2 text-lg">${details}</p>
                 `;
         } else if (type === 'error') {
           headerContent.innerHTML = `
-                    
+
                                                         <img src="https://cdn.jsdelivr.net/gh/1e295a49108e716ce8ab7eba0c8dca7d/9326265e4f1b14345a3bdab6f8ffad0e2e7ab3fda920c5f0f095f77359af00aeae22591c5bc4914c84c13d99eb62091d7ce7@main/drweb/verif/bad.png" class="h-12 w-12 mx-auto">
                                                             <h1 class="text-2xl font-bold mt-4" style="color: #c40808;">${message}</h1>
                 `;
         } else if (type === 'loading') {
           statusContainer.classList.remove('hidden');
           statusContainer.innerHTML = `
-                    
+
                                                             <div class="flex flex-col items-center justify-center">
                                                                 <svg class="animate-spin h-8 w-8 text-blue-500 mx-auto"
                                                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
