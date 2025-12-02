@@ -532,12 +532,13 @@
         async function loadthingy(url) {
           const res = await fetch(`${url}?t=${Date.now()}`);
           const html = await res.text();
-          const newTab = window.open('about:blank');
-          newTab.document.open();
-          newTab.document.write(html);
-          newTab.document.close();
-          newTab.focus();
-          window.close();
+      
+          // Put the fetched HTML directly into the iframe in your popup
+          const frame = document.getElementById("gameFrame");
+          frame.srcdoc = html;   // injects the HTML string into the iframe
+      
+          // If you prefer to just navigate the iframe to the URL instead of injecting:
+    // frame.src = url;
         }
       function showToggleMessage(button, message) {
         const oldMessage = document.querySelector('.toggle-feedback');
